@@ -1,5 +1,8 @@
 # Bundle Update Log
 
+## 2026-07-07
+* **Update**: Revised the public README framing so the repository stands on its own without referencing private maintenance context.
+
 ## 2026-07-06
 * **Update**: Added README, concept vocabulary, lifecycle rules, first decision record, and moved the OKF baseline into Resources.
 * **Update**: Made MindHive the first-class vault name across entrypoints, MOCs, projects, and system notes.

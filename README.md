@@ -8,11 +8,7 @@ timestamp: 2026-07-06T00:00:00Z
 
 # MindHive
 
-MindHive is an Obsidian workspace and OKF knowledge bundle for shared human and agent knowledge work.
-
-This public branch is a publishable version of the vault scaffold: it includes the
-structure, operating rules, templates, example resources, automation, and public
-Obsidian settings, but not private workspace state or personal project history.
+MindHive is an Obsidian workspace and OKF knowledge bundle for shared human and agent knowledge work. It combines PARA organization, Maps of Content, portable Markdown concepts, and validation automation into a reusable second-brain scaffold.
 
 Start with:
 
