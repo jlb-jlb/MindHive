@@ -1,0 +1,13 @@
+# Keep text files canonical across Windows, macOS, and Linux clones.
+* text=auto eol=lf
+
+# Binary assets should never be line-ending normalized.
+*.avif binary
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.pdf binary
+*.png binary
+*.webp binary
+

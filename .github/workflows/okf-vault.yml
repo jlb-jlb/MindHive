@@ -1,0 +1,18 @@
+name: OKF Vault
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate:
+    name: Validate OKF vault
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run OKF checks
+        shell: pwsh
+        run: ./tools/Invoke-OkfChecks.ps1 -SkipCommitCheck

@@ -1,0 +1,4 @@
+interface:
+  display_name: "General Academic Writing"
+  short_description: "Evidence-grounded academic prose guidance"
+  default_prompt: "Use $general-academic-writing to revise this paragraph for precise, evidence-grounded academic style."

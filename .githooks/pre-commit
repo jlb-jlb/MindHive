@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -eu
+
+if ! command -v pwsh >/dev/null 2>&1; then
+  echo "PowerShell 7+ (pwsh) is required to run the OKF vault checks on Windows, macOS, and Linux." >&2
+  echo "Install pwsh, then run: pwsh -NoProfile -File tools/Install-GitHooks.ps1" >&2
+  exit 1
+fi
+
+pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1

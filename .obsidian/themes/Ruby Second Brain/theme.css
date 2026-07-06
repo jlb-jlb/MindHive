@@ -1,0 +1,296 @@
+/*
+Ruby Second Brain
+A calm Obsidian theme for long-form human and agent knowledge work.
+*/
+
+:root {
+  --ruby-h: 347;
+  --ruby-s: 77%;
+  --ruby-l: 50%;
+  --ruby: #e11d48;
+  --ruby-2: #be123c;
+  --ruby-3: #fb7185;
+  --ruby-soft: rgba(225, 29, 72, 0.12);
+  --ruby-softer: rgba(225, 29, 72, 0.07);
+  --ruby-line: rgba(225, 29, 72, 0.24);
+
+  --accent-h: var(--ruby-h);
+  --accent-s: var(--ruby-s);
+  --accent-l: var(--ruby-l);
+  --accent-color: var(--ruby);
+  --accent-color-hover: var(--ruby-2);
+  --interactive-accent: var(--ruby);
+  --interactive-accent-hover: var(--ruby-2);
+
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --radius-l: 8px;
+  --font-text-size: 16px;
+  --line-height-normal: 1.65;
+  --heading-spacing: 1.15rem;
+}
+
+.theme-light {
+  --background-primary: #fbfaf9;
+  --background-primary-alt: #f5f1ef;
+  --background-secondary: #f1ece9;
+  --background-secondary-alt: #e9e1dd;
+  --background-modifier-border: #ddd3ce;
+  --background-modifier-border-hover: #cfc2bc;
+  --background-modifier-hover: rgba(47, 37, 35, 0.06);
+  --background-modifier-active-hover: rgba(225, 29, 72, 0.1);
+
+  --text-normal: #211a1c;
+  --text-muted: #6f6264;
+  --text-faint: #95888a;
+  --text-accent: var(--ruby-2);
+  --text-accent-hover: #9f1239;
+  --text-on-accent: #fff7f9;
+  --text-selection: rgba(225, 29, 72, 0.18);
+
+  --link-color: var(--ruby-2);
+  --link-color-hover: #9f1239;
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+
+  --tag-color: #8f1234;
+  --tag-background: rgba(225, 29, 72, 0.1);
+  --tag-background-hover: rgba(225, 29, 72, 0.17);
+
+  --code-normal: #9f1239;
+  --code-background: #f6ecef;
+}
+
+.theme-dark {
+  --background-primary: #141011;
+  --background-primary-alt: #1a1416;
+  --background-secondary: #21191c;
+  --background-secondary-alt: #2a2024;
+  --background-modifier-border: #3a2b30;
+  --background-modifier-border-hover: #503942;
+  --background-modifier-hover: rgba(255, 255, 255, 0.055);
+  --background-modifier-active-hover: rgba(251, 113, 133, 0.14);
+
+  --text-normal: #f4ecee;
+  --text-muted: #c6b8bc;
+  --text-faint: #8f7f84;
+  --text-accent: var(--ruby-3);
+  --text-accent-hover: #fda4af;
+  --text-on-accent: #fff7f9;
+  --text-selection: rgba(251, 113, 133, 0.22);
+
+  --link-color: #fb7185;
+  --link-color-hover: #fda4af;
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+
+  --tag-color: #fecdd3;
+  --tag-background: rgba(251, 113, 133, 0.14);
+  --tag-background-hover: rgba(251, 113, 133, 0.22);
+
+  --code-normal: #fda4af;
+  --code-background: #26191e;
+}
+
+body {
+  --tab-radius-active: 6px;
+  --input-radius: 6px;
+  --button-radius: 6px;
+  --checkbox-radius: 4px;
+}
+
+.workspace,
+.workspace-split.mod-root,
+.mod-root .workspace-tab-header-container {
+  background-color: var(--background-primary);
+}
+
+.workspace-tabs .workspace-leaf {
+  border-radius: 0;
+}
+
+.workspace-tab-header.is-active {
+  color: var(--text-normal);
+}
+
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+  display: none;
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner {
+  box-shadow: inset 0 -2px 0 var(--interactive-accent);
+}
+
+.nav-folder-title,
+.nav-file-title {
+  border-radius: 6px;
+}
+
+.nav-file-title.is-active {
+  background: var(--ruby-soft);
+  color: var(--text-accent);
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {
+  background: var(--background-modifier-hover);
+}
+
+.markdown-source-view,
+.markdown-preview-view {
+  color: var(--text-normal);
+}
+
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-content {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.markdown-rendered h1,
+.cm-header-1 {
+  color: var(--text-normal);
+  font-weight: 750;
+}
+
+.markdown-rendered h2,
+.cm-header-2 {
+  color: var(--text-normal);
+  font-weight: 700;
+}
+
+.markdown-rendered h3,
+.cm-header-3 {
+  color: var(--text-accent);
+  font-weight: 680;
+}
+
+.markdown-rendered h1 {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--ruby-line);
+}
+
+.markdown-rendered hr {
+  border-color: var(--background-modifier-border);
+}
+
+.markdown-rendered a,
+.cm-hmd-internal-link,
+.cm-link {
+  color: var(--link-color);
+}
+
+.markdown-rendered a:hover,
+.cm-hmd-internal-link:hover,
+.cm-link:hover {
+  color: var(--link-color-hover);
+}
+
+.metadata-container {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: var(--background-primary-alt);
+  padding: 0.45rem 0.65rem;
+}
+
+.metadata-property-key {
+  color: var(--text-muted);
+}
+
+.metadata-property-value {
+  color: var(--text-normal);
+}
+
+.tag,
+.cm-hashtag {
+  border: 1px solid var(--ruby-line);
+  border-radius: 999px;
+  color: var(--tag-color);
+  background: var(--tag-background);
+  padding-inline: 0.45em;
+}
+
+.tag:hover,
+.cm-hashtag:hover {
+  background: var(--tag-background-hover);
+  color: var(--tag-color);
+}
+
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--interactive-accent);
+  background: var(--ruby-softer);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-normal);
+  padding: 0.55rem 0.85rem;
+}
+
+.markdown-rendered table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.markdown-rendered th {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+}
+
+.markdown-rendered th,
+.markdown-rendered td {
+  border-color: var(--background-modifier-border);
+}
+
+pre,
+code,
+.cm-inline-code {
+  border-radius: 5px;
+}
+
+pre,
+.HyperMD-codeblock,
+.markdown-rendered pre {
+  border: 1px solid var(--background-modifier-border);
+}
+
+.callout {
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary-alt);
+}
+
+.callout[data-callout="todo"],
+.callout[data-callout="question"],
+.callout[data-callout="summary"] {
+  --callout-color: 225, 29, 72;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+.suggestion-item.is-selected,
+.menu-item:hover,
+.vertical-tab-nav-item.is-active {
+  background: var(--ruby-soft);
+  color: var(--text-accent);
+}
+
+.mod-cta,
+.mod-cta:hover,
+button.mod-cta {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.graph-view.color-fill,
+.graph-view.color-fill-highlight {
+  color: var(--ruby-3);
+}
+
+.graph-view.color-line-highlight {
+  color: var(--ruby);
+}
