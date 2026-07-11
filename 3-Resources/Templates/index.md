@@ -6,6 +6,7 @@
 * [Decision Note Template](decision-note-template.md) - Template for choices and tradeoffs.
 * [Agent Handoff Template](agent-handoff-template.md) - Template for resumable agent work.
 * [Daily Capture Template](daily-capture-template.md) - Template for inbox capture.
+* [Daily Note Template](daily-note-template.md) - Template for dated daily journal notes.
 
 <!-- BEGIN GENERATED INDEX -->
 # Generated Directory Contents
@@ -15,6 +16,7 @@
 * [Agent Handoff Template](agent-handoff-template.md) - Template for a compact task handoff from one human or agent to the next.
 * [Area Note Template](area-note-template.md) - Template for an ongoing responsibility or standard.
 * [Daily Capture Template](daily-capture-template.md) - Template for fast inbox capture before review and routing.
+* [Daily Note Template](daily-note-template.md) - Template for a dated daily journal note in 7-Journal.
 * [Decision Note Template](decision-note-template.md) - Template for recording decisions, tradeoffs, and consequences.
 * [Project Note Template](project-note-template.md) - Template for an active outcome with a clear done condition.
 * [Resource Note Template](resource-note-template.md) - Template for reusable knowledge, references, and methods.

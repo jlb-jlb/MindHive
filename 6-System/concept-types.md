@@ -18,6 +18,7 @@ This note defines the shared vocabulary that humans and agents should use in fro
 | `Capture` | Unprocessed inbox item awaiting review. |
 | `Decision` | Recorded choice, tradeoff, and consequence. |
 | `Handoff` | Context packet for resuming unfinished work. |
+| `Journal` | Dated daily note for logs, reflections, and running notes. |
 | `MOC` | Map of Content for navigation and linked thinking. |
 | `Project` | Active outcome with a finish line. |
 | `Reference` | External or preserved source material. |

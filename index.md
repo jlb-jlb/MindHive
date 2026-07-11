@@ -22,6 +22,10 @@ MindHive is a shared second brain for humans and agents. It uses PARA for durabl
 * [Resources](3-Resources/) - Reusable knowledge, methods, references, and templates.
 * [Archive](4-Archive/) - Inactive or completed material kept for history.
 
+# Journal
+
+* [Journal](7-Journal/) - Dated daily notes for logs, reflections, and running thoughts.
+
 # Navigation Maps
 
 * [Projects MOC](5-MOCs/projects-moc.md) - Active and potential project landscape.
@@ -51,6 +55,7 @@ MindHive is a shared second brain for humans and agents. It uses PARA for durabl
 * [4-Archive](4-Archive/)
 * [5-MOCs](5-MOCs/)
 * [6-System](6-System/)
+* [7-Journal](7-Journal/)
 * [tools](tools/)
 
 ## Concepts

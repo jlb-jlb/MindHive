@@ -12,6 +12,7 @@ $AllowedTypes = @(
   "Capture",
   "Decision",
   "Handoff",
+  "Journal",
   "MOC",
   "Project",
   "Reference",

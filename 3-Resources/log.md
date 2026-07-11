@@ -1,5 +1,8 @@
 # Resources Update Log
 
+## 2026-07-09
+* **Creation**: Added [Daily Note Template](/3-Resources/Templates/daily-note-template.md) for dated journal notes in [7-Journal](/7-Journal/).
+
 ## 2026-07-07
 * **Move**: Grouped agent-facing resources under [Agent Resources](/3-Resources/agent-resources/) to reduce clutter in the top-level Resources directory.
 

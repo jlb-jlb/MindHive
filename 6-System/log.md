@@ -1,5 +1,8 @@
 # System Update Log
 
+## 2026-07-09
+* **Update**: Added a `Journal` concept type to [Concept Types and Status Vocabulary](/6-System/concept-types.md) for dated daily notes in [7-Journal](/7-Journal/).
+
 ## 2026-07-07
 * **Update**: Added a portable PowerShell 7+ check runner, canonical LF line-ending policy, and operating-system agnostic validation documentation.
 * **Update**: Added commit-level OKF validation that blocks staged new or moved concept files unless a nearby `log.md` update is staged.
