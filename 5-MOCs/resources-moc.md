@@ -14,10 +14,10 @@ timestamp: 2026-07-06T00:00:00Z
 
 # Agent Resources
 
-* [Agent Collaboration Patterns](/3-Resources/agent-collaboration-patterns.md) - Reusable patterns for shared work with agents.
-* [Agent Skills Library](/3-Resources/agent-skills-library.md) - Catalog of reusable agent skills maintained alongside MindHive.
-* [General Academic Writing Skill](/3-Resources/agent-skill-general-academic-writing.md) - Discipline-neutral academic writing and revision skill.
-* [Context Packet](/3-Resources/context-packet.md) - Minimal context needed to resume a task.
+* [Agent Collaboration Patterns](/3-Resources/agent-resources/agent-collaboration-patterns.md) - Reusable patterns for shared work with agents.
+* [Agent Skills Library](/3-Resources/agent-resources/agent-skills-library.md) - Catalog of reusable agent skills maintained alongside MindHive.
+* [General Academic Writing Skill](/3-Resources/agent-resources/agent-skill-general-academic-writing.md) - Discipline-neutral academic writing and revision skill.
+* [Context Packet](/3-Resources/agent-resources/context-packet.md) - Minimal context needed to resume a task.
 * [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md) - How this vault applies OKF.
 * [OKF Baseline](/3-Resources/okf-specification.md) - Local copy of the Open Knowledge Format specification.
 * [Weekly Review Checklist](/3-Resources/weekly-review-checklist.md) - Practical checklist for keeping MindHive current and usable.
