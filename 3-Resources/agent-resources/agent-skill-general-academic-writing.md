@@ -4,7 +4,7 @@ title: General Academic Writing Skill
 description: Catalog entry for the reusable discipline-neutral academic writing skill.
 tags: [resource, agents, skills, academic-writing, writing]
 timestamp: 2026-07-06T00:00:00Z
-resource: /3-Resources/agent-skills/general-academic-writing/SKILL.md
+resource: /3-Resources/agent-resources/agent-skills/general-academic-writing/SKILL.md
 ---
 
 # Summary
@@ -21,7 +21,7 @@ The copy-pasteable skill folder is:
 └── agents/openai.yaml
 ```
 
-Skill file: [SKILL.md](/3-Resources/agent-skills/general-academic-writing/SKILL.md)
+Skill file: [SKILL.md](/3-Resources/agent-resources/agent-skills/general-academic-writing/SKILL.md)
 
 # Trigger
 
@@ -69,5 +69,5 @@ add a reference file rather than hard-coding those assumptions here.
 
 # Related
 
-* [Agent Skills Library](/3-Resources/agent-skills-library.md)
+* [Agent Skills Library](/3-Resources/agent-resources/agent-skills-library.md)
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md)

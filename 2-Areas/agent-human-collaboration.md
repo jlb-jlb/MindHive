@@ -13,7 +13,7 @@ Work should be resumable. Important assumptions, decisions, next actions, and ve
 
 # Practices
 
-* Use [Context Packet](/3-Resources/context-packet.md) for resumable task state.
+* Use [Context Packet](/3-Resources/agent-resources/context-packet.md) for resumable task state.
 * Use [Agent Handoff Template](/3-Resources/Templates/agent-handoff-template.md) before pausing complex work.
 * Use [Decision Note Template](/3-Resources/Templates/decision-note-template.md) when tradeoffs matter.
 * Route collaboration knowledge through [Agent-Human Collaboration MOC](/5-MOCs/agent-human-collaboration-moc.md).
@@ -22,5 +22,5 @@ Work should be resumable. Important assumptions, decisions, next actions, and ve
 
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md)
 * [Human Operating Protocol](/6-System/human-operating-protocol.md)
-* [Agent Collaboration Patterns](/3-Resources/agent-collaboration-patterns.md)
+* [Agent Collaboration Patterns](/3-Resources/agent-resources/agent-collaboration-patterns.md)
 

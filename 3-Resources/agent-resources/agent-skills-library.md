@@ -8,13 +8,13 @@ timestamp: 2026-07-06T00:00:00Z
 
 # Purpose
 
-This library tracks reusable agent skills that are useful enough to maintain deliberately. It stores actual copy-pasteable skill folders under [agent-skills](/3-Resources/agent-skills/) and records what each skill does, when it should trigger, and what quality rules it enforces.
+This library tracks reusable agent skills that are useful enough to maintain deliberately. It stores actual copy-pasteable skill folders under [agent-skills](/3-Resources/agent-resources/agent-skills/) and records what each skill does, when it should trigger, and what quality rules it enforces.
 
 # Skills
 
 | Skill | Purpose | Canonical Source |
 |---|---|---|
-| [General Academic Writing](/3-Resources/agent-skill-general-academic-writing.md) | Discipline-neutral academic writing and revision with evidence, style, and structure rules. | [SKILL.md](/3-Resources/agent-skills/general-academic-writing/SKILL.md) |
+| [General Academic Writing](/3-Resources/agent-resources/agent-skill-general-academic-writing.md) | Discipline-neutral academic writing and revision with evidence, style, and structure rules. | [SKILL.md](/3-Resources/agent-resources/agent-skills/general-academic-writing/SKILL.md) |
 
 # Library Rules
 
@@ -28,6 +28,6 @@ This library tracks reusable agent skills that are useful enough to maintain del
 
 # Related
 
-* [Agent Collaboration Patterns](/3-Resources/agent-collaboration-patterns.md)
-* [Context Packet](/3-Resources/context-packet.md)
+* [Agent Collaboration Patterns](/3-Resources/agent-resources/agent-collaboration-patterns.md)
+* [Context Packet](/3-Resources/agent-resources/context-packet.md)
 * [Concept Types and Status Vocabulary](/6-System/concept-types.md)

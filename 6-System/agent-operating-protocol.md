@@ -48,7 +48,7 @@ Before finishing structural work, check:
 
 # Related
 
-* [Agent Collaboration Patterns](/3-Resources/agent-collaboration-patterns.md)
-* [Context Packet](/3-Resources/context-packet.md)
+* [Agent Collaboration Patterns](/3-Resources/agent-resources/agent-collaboration-patterns.md)
+* [Context Packet](/3-Resources/agent-resources/context-packet.md)
 * [Agent-Human Collaboration](/2-Areas/agent-human-collaboration.md)
 * [Concept Types and Status Vocabulary](/6-System/concept-types.md)

@@ -6,8 +6,8 @@ Skill subdirectories are treated as artifacts, not OKF concept directories. Do n
 
 Catalog notes:
 
-* [Agent Skills Library](/3-Resources/agent-skills-library.md) - Library overview.
-* [General Academic Writing Skill](/3-Resources/agent-skill-general-academic-writing.md) - Catalog entry for the discipline-neutral academic writing skill.
+* [Agent Skills Library](/3-Resources/agent-resources/agent-skills-library.md) - Library overview.
+* [General Academic Writing Skill](/3-Resources/agent-resources/agent-skill-general-academic-writing.md) - Catalog entry for the discipline-neutral academic writing skill.
 
 <!-- BEGIN GENERATED INDEX -->
 # Generated Directory Contents

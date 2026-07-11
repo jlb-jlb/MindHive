@@ -27,7 +27,7 @@ The decisions above are encoded as operating rules in [System](/6-System/) and [
 
 # Context Packets
 
-* [Context Packet](/3-Resources/context-packet.md) - Definition of a portable task state snapshot.
+* [Context Packet](/3-Resources/agent-resources/context-packet.md) - Definition of a portable task state snapshot.
 * [Agent Handoff Template](/3-Resources/Templates/agent-handoff-template.md) - Template for the next agent.
 
 # Decision Hygiene

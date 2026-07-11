@@ -48,7 +48,7 @@ function Get-ContentRaw {
 function Test-IsRawSkillFile {
   param([string]$RelativePath)
 
-  return $RelativePath -match "^3-Resources/agent-skills/[^/]+/SKILL\.md$"
+  return $RelativePath -match "^3-Resources/agent-resources/agent-skills/[^/]+/SKILL\.md$"
 }
 
 function Get-MarkdownFiles {

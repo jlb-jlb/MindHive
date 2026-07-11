@@ -26,6 +26,6 @@ timestamp: 2026-07-06T00:00:00Z
 # Related
 
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md)
-* [Context Packet](/3-Resources/context-packet.md)
+* [Context Packet](/3-Resources/agent-resources/context-packet.md)
 * [Agent Handoff Template](/3-Resources/Templates/agent-handoff-template.md)
 

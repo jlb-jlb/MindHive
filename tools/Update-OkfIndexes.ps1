@@ -25,13 +25,13 @@ function Convert-ToMarkdownUrl {
 function Test-IsRawSkillFile {
   param([string]$RelativePath)
 
-  return $RelativePath -match "^3-Resources/agent-skills/[^/]+/SKILL\.md$"
+  return $RelativePath -match "^3-Resources/agent-resources/agent-skills/[^/]+/SKILL\.md$"
 }
 
 function Test-IsSkillArtifactDirectory {
   param([string]$RelativePath)
 
-  return $RelativePath -match "^3-Resources/agent-skills/[^/]+$"
+  return $RelativePath -match "^3-Resources/agent-resources/agent-skills/[^/]+$"
 }
 
 function Get-MarkdownFiles {
