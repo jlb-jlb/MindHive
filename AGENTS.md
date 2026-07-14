@@ -20,6 +20,29 @@ Read this file first at the start of a new session.
 4. Open [Agent Operating Protocol](/6-System/agent-operating-protocol.md) before editing the vault.
 5. Open [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md) before changing structure.
 
+# Grow This Workspace Organically (Explicit Standing Instruction)
+
+**Whenever you generate, synthesize, or discover knowledge in the course of a task, capture it as a durable note in this vault before ending the turn.** This workspace is meant to grow organically as a living second brain, not to stay static between explicit "write a note" requests.
+
+This applies to knowledge produced as a *byproduct* of any work, not only when the user says "save this." Concretely, capture:
+
+* **Synthesized understanding** — conclusions, models, or explanations you worked out that took real effort to reach and would cost effort to re-derive.
+* **How-tos and procedures** — repeatable steps you figured out (a setup, a workflow, a fix, a command sequence).
+* **Decisions and their rationale** — what was chosen, what was rejected, and why (so future humans and agents understand the "why").
+* **References discovered** — useful external sources, tools, or resources encountered while working.
+* **Reusable methods and patterns** — anything general enough to help on future tasks.
+
+Rules for organic growth:
+
+1. **Default to capture.** When in doubt about whether something is worth keeping, write a short note rather than letting it evaporate. A small linked note is better than lost knowledge.
+2. **Place it correctly** using PARA and the [Folder Meaning](#folder-meaning) table: how-tos, methods, and references → `3-Resources/`; project-specific outcomes → `1-Projects/`; standing responsibilities → `2-Areas/`; operating rules → `6-System/`; raw unprocessed captures → `0-Inbox/`.
+3. **Never orphan a note.** Give it OKF frontmatter with a non-empty `type`, link it from at least one MOC, and link it to related concepts. Follow the [Editing Rules](#editing-rules) and [Naming and Linking Rules](/6-System/naming-and-linking-rules.md).
+4. **Update the surrounding structure** — the relevant `index.md`, MOC, and `log.md` — so the new knowledge is discoverable, exactly as you would for a requested note.
+5. **Prefer growing an existing note** over creating a near-duplicate. If a note already covers the topic, extend or refine it and record the update in `log.md`.
+6. **Keep it self-contained.** Do not rely on hidden chat context; write down what a future reader would need.
+
+Do this proactively and briefly tell the user what you captured and where. If a capture would be large or ambiguous in placement, drop a quick note in `0-Inbox/` and flag it for review rather than skipping it.
+
 # What This Vault Is
 
 This vault uses:

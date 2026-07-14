@@ -26,6 +26,17 @@ When a task affects this vault, agents should read:
 * Prefer small, scoped edits over broad rewrites.
 * Preserve user-authored content unless asked to change it.
 
+# Organic Growth (Capture Byproduct Knowledge)
+
+Grow this vault as a living second brain. When a task produces durable knowledge as a byproduct — synthesized understanding, a how-to or procedure, a decision and its rationale, a discovered reference, or a reusable method — capture it as a linked note before ending the turn, not only when the user explicitly asks. Default to capture when unsure; a small linked note beats lost knowledge.
+
+* Place it by PARA: how-tos, methods, references → `3-Resources/`; project outcomes → `1-Projects/`; standing responsibilities → `2-Areas/`; operating rules → `6-System/`; ambiguous or raw captures → `0-Inbox/` flagged for review.
+* Never orphan it: valid frontmatter, at least one MOC link, links to related concepts, and updated `index.md` / MOC / `log.md`.
+* Prefer extending an existing note over creating a near-duplicate.
+* Briefly tell the user what you captured and where.
+
+This is the operating-level restatement of the standing instruction in [Agent Session Instructions](/AGENTS.md#grow-this-workspace-organically-explicit-standing-instruction).
+
 # Handoff Rules
 
 Create or update a handoff when:

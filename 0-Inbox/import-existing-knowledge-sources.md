@@ -3,7 +3,7 @@ type: Capture
 title: Import Existing Knowledge Sources
 description: Unprocessed capture listing likely source material to migrate into MindHive.
 tags: [capture, inbox, migration, second-brain]
-timestamp: 2026-07-06T00:00:00Z
+timestamp: 2026-07-14T00:00:00Z
 status: unprocessed
 ---
 
