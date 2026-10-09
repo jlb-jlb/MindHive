@@ -1,0 +1,101 @@
+/* Minimal reproduction of the Obsidian app.css rules that bind the theme's
+   variables to real properties. Used only to preview theme.css outside the
+   app. Not part of the vault. */
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--font-text-size);
+  line-height: var(--line-height-normal);
+  color: var(--text-normal);
+  background-color: var(--background-secondary-alt);
+}
+
+/* --- workspace skeleton -------------------------------------------------- */
+.workspace { display: flex; height: 100vh; }
+.workspace-split.mod-left-split { width: 250px; flex: none; overflow: auto; }
+.workspace-split.mod-root { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.workspace-tab-header-container { display: flex; gap: 2px; padding: 4px 6px 0; flex: none; }
+.workspace-tab-header-inner { display: flex; align-items: center; gap: 6px; padding: 6px 12px; }
+.workspace-tab-header-inner-title { font-size: 13px; color: var(--text-muted); }
+.workspace-tab-header.is-active .workspace-tab-header-inner-title { color: var(--text-normal); }
+.workspace-leaf-content { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+.markdown-reading-view { flex: 1; overflow: auto; }
+.markdown-preview-view { padding: var(--file-margins); min-height: 100%; }
+.markdown-preview-sizer { max-width: var(--file-line-width); margin: 0 auto; }
+
+/* --- masthead ------------------------------------------------------------ */
+.inline-title {
+  font-family: var(--inline-title-font);
+  font-size: var(--inline-title-size);
+  font-weight: var(--inline-title-weight);
+  line-height: var(--inline-title-line-height);
+  color: var(--inline-title-color);
+  margin: 0;
+}
+
+.metadata-properties { display: flex; flex-direction: column; }
+.metadata-property { display: flex; align-items: baseline; gap: 8px; }
+.metadata-property-key {
+  display: flex; align-items: center; gap: 6px;
+  width: var(--metadata-label-width); flex: none;
+}
+.metadata-property-value { flex: 1; min-width: 0; }
+
+/* --- headings ------------------------------------------------------------ */
+.markdown-rendered h1 { font-family: var(--h1-font); font-size: var(--h1-size); font-weight: var(--h1-weight); line-height: var(--h1-line-height); color: var(--h1-color); }
+.markdown-rendered h2 { font-family: var(--h2-font); font-size: var(--h2-size); font-weight: var(--h2-weight); line-height: var(--h2-line-height); color: var(--h2-color); }
+.markdown-rendered h3 { font-family: var(--h3-font); font-size: var(--h3-size); font-weight: var(--h3-weight); line-height: var(--h3-line-height); color: var(--h3-color); }
+.markdown-rendered h4 { font-family: var(--h4-font); font-size: var(--h4-size); font-weight: var(--h4-weight); line-height: var(--h4-line-height); color: var(--h4-color); }
+.markdown-rendered h5 { font-family: var(--h5-font); font-size: var(--h5-size); font-weight: var(--h5-weight); line-height: var(--h5-line-height); color: var(--h5-color); }
+.markdown-rendered h6 { font-family: var(--h6-font); font-size: var(--h6-size); font-weight: var(--h6-weight); line-height: var(--h6-line-height); color: var(--h6-color); }
+
+/* --- inline elements ----------------------------------------------------- */
+.markdown-rendered a { color: var(--link-color); }
+.markdown-rendered a.tag {
+  font-size: var(--tag-size);
+  font-weight: var(--tag-weight);
+  color: var(--tag-color);
+  background-color: var(--tag-background);
+  border: var(--tag-border-width) solid var(--tag-border-color);
+  border-radius: var(--tag-radius);
+  padding: var(--tag-padding-y) var(--tag-padding-x);
+  white-space: nowrap;
+}
+.markdown-rendered mark { background-color: var(--text-highlight-bg); }
+.markdown-rendered pre { overflow-x: auto; white-space: var(--code-white-space); }
+.markdown-rendered pre > code { font-family: var(--font-monospace); }
+
+/* --- task list ----------------------------------------------------------- */
+.markdown-rendered ul.contains-task-list { list-style: none; padding-inline-start: 0.2em; }
+.markdown-rendered .task-list-item-checkbox {
+  appearance: none; -webkit-appearance: none;
+  width: var(--checkbox-size); height: var(--checkbox-size);
+  border: 1px solid var(--checkbox-border-color);
+  border-radius: var(--checkbox-radius);
+  vertical-align: -2px; cursor: pointer;
+}
+.markdown-rendered .task-list-item.is-checked { text-decoration: var(--checklist-done-decoration); }
+
+/* --- copy button --------------------------------------------------------- */
+.copy-code-button { position: absolute; cursor: pointer; }
+
+/* --- callout ------------------------------------------------------------- */
+.callout { padding: var(--callout-padding); overflow: hidden; }
+.callout-title { display: flex; gap: 6px; align-items: center; font-size: var(--callout-title-size); }
+
+/* --- sidebar ------------------------------------------------------------- */
+.nav-folder-title, .nav-file-title, .tree-item-self {
+  display: flex; align-items: center;
+  padding: 4px 8px; font-size: var(--nav-item-size);
+  color: var(--nav-item-color, var(--text-muted));
+  cursor: pointer;
+}
+.nav-file-title.is-active, .tree-item-self.is-active { color: var(--nav-item-color-active); }
+.nav-files-container { padding: 8px 6px; }
+.workspace-leaf-content[data-type="outline"] .outline { padding: 8px 6px; }
+.workspace-leaf-content[data-type="outline"] .tree-item .tree-item { padding-left: 12px; }

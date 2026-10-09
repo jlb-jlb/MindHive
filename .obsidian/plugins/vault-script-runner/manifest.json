@@ -1,0 +1,11 @@
+{
+  "id": "vault-script-runner",
+  "name": "Vault Script Runner",
+  "version": "0.1.1",
+  "minAppVersion": "1.0.0",
+  "description": "Run configured local scripts with prompted parameters from a version-tracked catalog.",
+  "author": "Joscha Bisping",
+  "isDesktopOnly": true
+}
+
+

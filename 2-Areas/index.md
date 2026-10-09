@@ -1,8 +1,13 @@
+---
+type: Index
+title: Areas
+description: Ongoing responsibilities and standards to maintain. No finish line, only a standard to keep.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # Areas
 
-* [Knowledge Operations](knowledge-operations.md) - Maintain the quality, shape, and usefulness of the vault.
-* [Agent-Human Collaboration](agent-human-collaboration.md) - Maintain shared context and reliable handoffs.
-* [Personal Operating System](personal-operating-system.md) - Maintain practices for capture, review, and execution.
+Ongoing responsibilities and standards to maintain. No finish line, only a standard to keep.
 
 <!-- BEGIN GENERATED INDEX -->
 # Generated Directory Contents

@@ -1,16 +1,16 @@
+---
+type: Index
+title: Inbox
+description: Unprocessed captures awaiting review. Drop raw notes here when placement is unclear, then triage them into PARA.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # Inbox
 
-Use this folder for unprocessed captures. Convert each useful capture into a project, area, resource, decision, or archive item during review.
-
-Suggested template:
-
-* [Daily Capture Template](/3-Resources/Templates/daily-capture-template.md) - Fast capture before review and routing.
-* [Import Existing Knowledge Sources](import-existing-knowledge-sources.md) - First real capture for routing existing material into the vault.
+Unprocessed captures awaiting review. Drop raw notes here when placement is unclear, then triage them into PARA.
 
 <!-- BEGIN GENERATED INDEX -->
 # Generated Directory Contents
 
-## Concepts
-
-* [Import Existing Knowledge Sources](import-existing-knowledge-sources.md) - Unprocessed capture listing likely source material to migrate into MindHive.
+No concepts or subdirectories currently live in this directory.
 <!-- END GENERATED INDEX -->

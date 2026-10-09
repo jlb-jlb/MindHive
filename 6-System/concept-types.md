@@ -23,8 +23,18 @@ This note defines the shared vocabulary that humans and agents should use in fro
 | `Project` | Active outcome with a finish line. |
 | `Reference` | External or preserved source material. |
 | `Resource` | Reusable knowledge, method, or local reference. |
+| `Skill` | Agent skill that packages a repeatable procedure, such as a `SKILL.md` in `.claude/skills/`. |
 | `System` | Operating rule, protocol, or vault infrastructure note. |
 | `Template` | Reusable note pattern. |
+
+# Reserved File Types
+
+The reserved filenames carry frontmatter too, using types that never apply to a concept document. The vault checks skip both files, so these two values are a convention rather than an enforced one. See [Frontmatter Contract](/6-System/frontmatter-contract.md).
+
+| Type | Use |
+|---|---|
+| `Index` | Directory map in an `index.md`. |
+| `Log` | Directory update history in a `log.md`. |
 
 # Status Values
 
@@ -60,5 +70,5 @@ Inbox captures start as `unprocessed`. Captures older than 7 days must be routed
 
 * [Human Operating Protocol](/6-System/human-operating-protocol.md)
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md)
-* [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md)
+* [OKF Bundle Practice](/6-System/okf-bundle-practice.md)
 * [Vault Automation](/6-System/vault-automation.md)

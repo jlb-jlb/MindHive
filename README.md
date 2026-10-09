@@ -8,7 +8,7 @@ timestamp: 2026-07-06T00:00:00Z
 
 # MindHive
 
-MindHive is an Obsidian workspace and OKF knowledge bundle for shared human and agent knowledge work. It combines PARA organization, Maps of Content, portable Markdown concepts, and validation automation into a reusable second-brain scaffold.
+MindHive is an Obsidian workspace and OKF knowledge bundle for shared human and agent knowledge work.
 
 Start with:
 
@@ -30,18 +30,27 @@ Start with:
 | [5-MOCs](5-MOCs/)           | Maps of Content for navigation and linked thinking.     |
 | [6-System](6-System/)       | Operating rules for the vault, humans, and agents.      |
 
+# Using This Template
+
+1. Create your own repository from this one (GitHub "Use this template", or clone and replace the remote).
+2. Open the folder as an Obsidian vault. The two local plugins and the Ruby Second Brain theme ship in `.obsidian/`.
+3. Install the git hook once with `pwsh -NoProfile -File _tools/Install-GitHooks.ps1`.
+4. For agent use, install [uv](https://docs.astral.sh/uv/). The Claude Code Stop hook in `.claude/settings.json` runs the session linter in `_tools/automation/`.
+5. Start a session with your agent. `CLAUDE.md` and `AGENTS.md` are identical copies, so Claude Code and other agent tools read the same first-read instructions. Edit them together.
+6. Replace the placeholder entries in [Current Focus](5-MOCs/current-focus.md) with your own priorities.
+
 # Validation
 
 Run the local checks before committing structural changes:
 
 ```powershell
-pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1
+pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1
 ```
 
 After adding, moving, or renaming notes, regenerate generated indexes as part of the same portable check sequence:
 
 ```powershell
-pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1 -FixIndexes
+pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1 -FixIndexes
 ```
 
 The pre-commit hook and GitHub Actions workflow use the same PowerShell 7+ runner on Windows, macOS, and Linux.

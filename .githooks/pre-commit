@@ -3,8 +3,18 @@ set -eu
 
 if ! command -v pwsh >/dev/null 2>&1; then
   echo "PowerShell 7+ (pwsh) is required to run the OKF vault checks on Windows, macOS, and Linux." >&2
-  echo "Install pwsh, then run: pwsh -NoProfile -File tools/Install-GitHooks.ps1" >&2
+  echo "Install pwsh, then run: pwsh -NoProfile -File _tools/Install-GitHooks.ps1" >&2
   exit 1
 fi
 
-pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1
+# Update-OkfIndexes.ps1 reads the working tree, not the staged snapshot. On a
+# whole-tree commit those are the same, so it is safe to regenerate the indexes
+# and add them to the commit. On a partial commit (unstaged changes to tracked
+# files) regenerating would bake unstaged content into the index, so fall back
+# to check-only and let the author run -FixIndexes deliberately.
+if git diff --quiet; then
+  pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1 -FixIndexes
+  git add -- '*/index.md' 'index.md' '3-Resources/tag-index.md'
+else
+  pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1
+fi

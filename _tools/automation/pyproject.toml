@@ -1,0 +1,44 @@
+[project]
+name = "mindhive-automation"
+version = "0.1.0"
+description = "Session-scoped vault linter for the MindHive OKF bundle, wired to the Claude Code Stop hook."
+readme = "README.md"
+authors = [
+    { name = "jlb-jlb", email = "joscha.bisping@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+mindhive-automation = "mindhive_automation:main"
+
+[build-system]
+requires = ["uv_build>=0.11.27,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.0",
+    "pytest>=9.1.1",
+    "ruff>=0.16.2",
+    "types-pyyaml>=6.0.12.20260724",
+]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+pythonpath = ["tests"]

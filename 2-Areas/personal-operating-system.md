@@ -21,7 +21,7 @@ The system should reduce cognitive load. Capture can be messy, but review should
 
 # Related
 
-* [PARA Method](/3-Resources/para-method.md)
+* [PARA Method](/6-System/para-method.md)
 * [Daily Capture Template](/3-Resources/Templates/daily-capture-template.md)
 * [Human Operating Protocol](/6-System/human-operating-protocol.md)
 

@@ -1,0 +1,9 @@
+{
+  "id": "mindhive-html-view",
+  "name": "MindHive HTML View",
+  "version": "1.4.0",
+  "minAppVersion": "1.5.0",
+  "description": "Renders local .html files, with their CSS and JavaScript active, inside Obsidian tabs. Lets embedded dashboards open vault notes via postMessage.",
+  "author": "Joscha Bisping with Claude",
+  "isDesktopOnly": true
+}

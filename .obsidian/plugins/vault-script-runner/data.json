@@ -1,0 +1,74 @@
+{
+  "pythonExecutable": "",
+  "defaultVenvPath": "{{pluginDir}}/.venv",
+  "downloadsDir": "",
+  "scriptCatalogUrl": "https://raw.githubusercontent.com/jlb-jlb/vault-script-runner/main/catalog/catalog.json",
+  "installedScripts": {
+    "pdf-to-obsidian-images": {
+      "id": "pdf-to-obsidian-images",
+      "name": "PDF to Obsidian images",
+      "version": "1.3.3",
+      "fileName": "pdf_to_obsidian_images.py",
+      "sourceUrl": "https://raw.githubusercontent.com/jlb-jlb/vault-script-runner/main/catalog/pdf_to_obsidian_images.py",
+      "installedAt": "2026-08-12T22:25:52.395Z",
+      "sha256": "3911c7e42b2879742406c27b4956aa13044e6fd933c9763fd31c2dbe2aed5f19"
+    },
+    "clean-chatgpt-research": {
+      "id": "clean-chatgpt-research",
+      "name": "Clean ChatGPT research report",
+      "version": "0.1.1",
+      "fileName": "clean_gpt_research.py",
+      "sourceUrl": "https://raw.githubusercontent.com/jlb-jlb/vault-script-runner/main/catalog/clean_gpt_research.py",
+      "installedAt": "2026-08-12T22:25:53.414Z",
+      "sha256": "484ab32ad9c8063926e16dd735e3d8de791cc1d04f8161b8345a0a8f28862eb4"
+    }
+  },
+  "scripts": [
+    {
+      "id": "pdf-to-obsidian-images",
+      "name": "PDF to Obsidian images",
+      "command": "{{venvPython}}",
+      "arguments": "{{scriptPath}}\n--vault\n{{vault}}\n--attachments\n_Attachments\n--attachment-subdir\n{pdf_stem}\n--output\n{{activeFolderPrefix}}{{pdfPath.stem}}.md\n--title\n{{pdfPath.stem}}\n--backend\nauto\n--link-style\nhtml\n--alt-text\nextracted\n--text-output\nnone\n--format\njpg\n{{pdfPath}}",
+      "cwd": "{{vault}}",
+      "parameters": [
+        {
+          "name": "pdfPath",
+          "label": "PDF path",
+          "placeholder": "C:\\Users\\you\\Downloads\\lecture.pdf",
+          "defaultValue": "{{latestDownloadPdf}}"
+        }
+      ],
+      "env": "",
+      "useVenv": true,
+      "venvPath": "",
+      "pythonExecutable": "",
+      "requirements": "pymupdf",
+      "runInShell": false,
+      "openOutput": true,
+      "catalogScriptId": "pdf-to-obsidian-images"
+    },
+    {
+      "id": "clean-chatgpt-research",
+      "name": "Clean ChatGPT research report",
+      "command": "{{venvPython}}",
+      "arguments": "{{scriptPath}}\n--vault\n{{vault}}\n--in-place\n{{mdPath}}",
+      "cwd": "{{vault}}",
+      "parameters": [
+        {
+          "name": "mdPath",
+          "label": "Report path",
+          "placeholder": "Folder/Report.md",
+          "defaultValue": "{{activeFile}}"
+        }
+      ],
+      "env": "",
+      "useVenv": true,
+      "venvPath": "",
+      "pythonExecutable": "",
+      "requirements": "",
+      "runInShell": false,
+      "openOutput": true,
+      "catalogScriptId": "clean-chatgpt-research"
+    }
+  ]
+}

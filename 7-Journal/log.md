@@ -1,4 +1,11 @@
+---
+type: Log
+title: Journal Update Log
+description: Update history for the Journal directory. Read it to see when notes here were added or materially changed and why.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # Journal Update Log
 
-## 2026-07-09
-* **Creation**: Added the [Journal](/7-Journal/) folder for dated daily notes and the first daily note, [2026-07-09](/7-Journal/2026-07-09.md).
+## 2026-10-09
+* **Creation**: Template baseline. Log entries for this directory start here.

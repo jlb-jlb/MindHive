@@ -1,112 +1,508 @@
-/*
-Ruby Second Brain
-A calm Obsidian theme for long-form human and agent knowledge work.
-*/
+/* ==========================================================================
+   Ruby Second Brain
+   Version 2.0, codename "Page"
+
+   A theme that makes MindHive notes read like a well built documentation
+   page: a quiet canvas, a designed masthead, a strong heading hierarchy,
+   and components (tables, code, callouts, quotes) that look composed
+   rather than defaulted.
+
+   Design intent
+   -------------
+   1. Hierarchy first. The inline title is the page title. `#` is a chapter
+      rule, `##` is a section marker, `###` is an accent lead-in. A reader
+      should locate a section without reading a single word.
+   2. One accent, used sparingly. Ruby marks structure and interaction.
+      Everything else is warm neutral so the accent keeps its meaning.
+   3. Reading comfort. ~72 character measure, 1.7 line height, real
+      vertical rhythm, generous runway at the foot of the page.
+   4. Parity between Reading view and Live Preview. Editing a note should
+      look like reading it.
+
+   Structure
+   ---------
+    1. Tokens: palette, fonts, geometry, motion
+    2. Light scheme
+    3. Dark scheme
+    4. Obsidian variable bridge (typography scale and component vars)
+    5. App chrome: workspace, tabs, view header
+    6. The reading surface
+    7. Masthead: inline title and properties
+    8. Headings
+    9. Body text and emphasis
+   10. Links
+   11. Tags
+   12. Lists and tasks
+   13. Tables
+   14. Code
+   15. Quotes and callouts
+   16. Rules, images, embeds, footnotes
+   17. Side panels: explorer, outline, backlinks, search
+   18. Command surfaces: palette, switcher, menus, modals
+   19. Scrollbars, focus, motion
+   20. Print
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
 
 :root {
-  --ruby-h: 347;
-  --ruby-s: 77%;
-  --ruby-l: 50%;
-  --ruby: #e11d48;
-  --ruby-2: #be123c;
-  --ruby-3: #fb7185;
-  --ruby-soft: rgba(225, 29, 72, 0.12);
-  --ruby-softer: rgba(225, 29, 72, 0.07);
-  --ruby-line: rgba(225, 29, 72, 0.24);
+  /* --- Ruby ramp, shared by both schemes --------------------------------- */
+  --mh-ruby-100: #ffe4e9;
+  --mh-ruby-200: #fecdd3;
+  --mh-ruby-300: #fda4af;
+  --mh-ruby-400: #fb7185;
+  --mh-ruby-500: #f43f5e;
+  --mh-ruby-600: #e11d48;
+  --mh-ruby-700: #be123c;
+  --mh-ruby-800: #9f1239;
+  --mh-ruby-900: #881337;
+  --mh-ruby-rgb: 225, 29, 72;
 
-  --accent-h: var(--ruby-h);
-  --accent-s: var(--ruby-s);
-  --accent-l: var(--ruby-l);
-  --accent-color: var(--ruby);
-  --accent-color-hover: var(--ruby-2);
-  --interactive-accent: var(--ruby);
-  --interactive-accent-hover: var(--ruby-2);
+  /* Obsidian's accent system, kept in sync with the ramp */
+  --ruby: var(--mh-ruby-600);
+  --ruby-2: var(--mh-ruby-700);
+  --ruby-3: var(--mh-ruby-400);
+  --accent-h: 347;
+  --accent-s: 77%;
+  --accent-l: 50%;
 
-  --radius-s: 4px;
-  --radius-m: 6px;
-  --radius-l: 8px;
-  --font-text-size: 16px;
-  --line-height-normal: 1.65;
-  --heading-spacing: 1.15rem;
+  /* --- Fonts -------------------------------------------------------------
+     Display and text share a family on purpose: hierarchy comes from size,
+     weight and tracking, which is steadier than mixing typefaces.
+     For an editorial variant, swap --mh-font-display for:
+       "Sitka Display", Constantia, Cambria, Georgia, serif
+     and set --mh-display-tracking to -0.012em.                              */
+  --mh-font-sans:
+    "Inter", "Inter Variable", "Segoe UI Variable Text", "Segoe UI",
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --mh-font-display:
+    "Inter", "Inter Variable", "Segoe UI Variable Display", "Segoe UI",
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --mh-font-mono:
+    "Cascadia Code", "Cascadia Mono", "JetBrains Mono", "Fira Code",
+    "SFMono-Regular", Consolas, "Roboto Mono", ui-monospace, monospace;
+
+  --mh-display-tracking: -0.022em;
+
+  /* --- Geometry ----------------------------------------------------------- */
+  --mh-radius-xs: 4px;
+  --mh-radius-sm: 6px;
+  --mh-radius-md: 9px;
+  --mh-radius-lg: 12px;
+  --mh-radius-pill: 999px;
+
+  /* --- Motion -------------------------------------------------------------- */
+  --mh-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --mh-fast: 110ms;
+  --mh-med: 180ms;
+
+  /* Vertical offset of the facet markers that sit above a heading. */
+  --mh-mark-top: 0.16em;
 }
+
+
+/* ==========================================================================
+   2. LIGHT SCHEME
+   Warm paper. The canvas sits a step behind the sheet so the note reads as
+   a document laid on a surface rather than a full bleed background.
+   ========================================================================== */
 
 .theme-light {
-  --background-primary: #fbfaf9;
-  --background-primary-alt: #f5f1ef;
-  --background-secondary: #f1ece9;
-  --background-secondary-alt: #e9e1dd;
-  --background-modifier-border: #ddd3ce;
-  --background-modifier-border-hover: #cfc2bc;
-  --background-modifier-hover: rgba(47, 37, 35, 0.06);
-  --background-modifier-active-hover: rgba(225, 29, 72, 0.1);
+  --mh-canvas: #ebe6e3;
+  --mh-canvas-2: #f2edea;
+  --mh-sheet: #fdfcfb;
+  --mh-raised: #f6f2f0;
+  --mh-raised-2: #eee8e5;
 
-  --text-normal: #211a1c;
-  --text-muted: #6f6264;
-  --text-faint: #95888a;
-  --text-accent: var(--ruby-2);
-  --text-accent-hover: #9f1239;
-  --text-on-accent: #fff7f9;
-  --text-selection: rgba(225, 29, 72, 0.18);
+  --mh-rule: #e6ded9;
+  --mh-rule-strong: #cec1bb;
 
-  --link-color: var(--ruby-2);
-  --link-color-hover: #9f1239;
-  --link-decoration: none;
-  --link-decoration-hover: underline;
+  --mh-ink: #1b1618;
+  --mh-ink-2: #5d5255;
+  --mh-ink-3: #8b7e81;
+  --mh-bold: #100c0d;
 
-  --tag-color: #8f1234;
-  --tag-background: rgba(225, 29, 72, 0.1);
-  --tag-background-hover: rgba(225, 29, 72, 0.17);
+  --mh-accent-text: var(--mh-ruby-700);
+  --mh-accent-text-hover: var(--mh-ruby-800);
+  --mh-accent-mark: var(--mh-ruby-600);
 
-  --code-normal: #9f1239;
-  --code-background: #f6ecef;
+  --mh-tint-1: rgba(var(--mh-ruby-rgb), 0.055);
+  --mh-tint-2: rgba(var(--mh-ruby-rgb), 0.1);
+  --mh-tint-3: rgba(var(--mh-ruby-rgb), 0.16);
+  --mh-tint-line: rgba(var(--mh-ruby-rgb), 0.22);
+
+  --mh-wash: radial-gradient(
+    118% 44% at 50% 0%,
+    rgba(var(--mh-ruby-rgb), 0.055),
+    rgba(var(--mh-ruby-rgb), 0) 62%
+  );
+
+  --mh-shadow-sheet:
+    0 1px 2px rgba(32, 22, 24, 0.05),
+    0 14px 34px -22px rgba(32, 22, 24, 0.28);
+  --mh-shadow-pop:
+    0 2px 6px rgba(32, 22, 24, 0.07),
+    0 18px 44px -20px rgba(32, 22, 24, 0.3);
+
+  --mh-mark: rgba(250, 204, 21, 0.42);
+  --mh-marker: rgba(var(--mh-ruby-rgb), 0.45);
+
+  /* Facet glow and the vertical sheen poured through the page title. */
+  --mh-glow: 0 0 10px rgba(var(--mh-ruby-rgb), 0.38);
+  --mh-glow-strong: 0 0 17px rgba(var(--mh-ruby-rgb), 0.55);
+  --mh-title-sheen: linear-gradient(
+    178deg,
+    var(--mh-ink) 0%,
+    var(--mh-ink) 30%,
+    var(--mh-ruby-800) 100%
+  );
+  --mh-title-bloom: none;
+  --mh-scroll: rgba(50, 38, 41, 0.2);
+  --mh-scroll-hover: rgba(50, 38, 41, 0.34);
 }
+
+
+/* ==========================================================================
+   3. DARK SCHEME
+   Near black with a warm bias so ruby stays a highlight instead of a glare.
+   ========================================================================== */
 
 .theme-dark {
-  --background-primary: #141011;
-  --background-primary-alt: #1a1416;
-  --background-secondary: #21191c;
-  --background-secondary-alt: #2a2024;
-  --background-modifier-border: #3a2b30;
-  --background-modifier-border-hover: #503942;
-  --background-modifier-hover: rgba(255, 255, 255, 0.055);
-  --background-modifier-active-hover: rgba(251, 113, 133, 0.14);
+  --mh-canvas: #0d0a0b;
+  --mh-canvas-2: #121011;
+  --mh-sheet: #161213;
+  --mh-raised: #1e191b;
+  --mh-raised-2: #262022;
 
-  --text-normal: #f4ecee;
-  --text-muted: #c6b8bc;
-  --text-faint: #8f7f84;
-  --text-accent: var(--ruby-3);
-  --text-accent-hover: #fda4af;
-  --text-on-accent: #fff7f9;
-  --text-selection: rgba(251, 113, 133, 0.22);
+  --mh-rule: #2d2427;
+  --mh-rule-strong: #493a3f;
 
-  --link-color: #fb7185;
-  --link-color-hover: #fda4af;
-  --link-decoration: none;
-  --link-decoration-hover: underline;
+  --mh-ink: #f3ebed;
+  --mh-ink-2: #b9a9ad;
+  --mh-ink-3: #8a7a7e;
+  --mh-bold: #fffafb;
 
-  --tag-color: #fecdd3;
-  --tag-background: rgba(251, 113, 133, 0.14);
-  --tag-background-hover: rgba(251, 113, 133, 0.22);
+  --mh-accent-text: var(--mh-ruby-400);
+  --mh-accent-text-hover: var(--mh-ruby-300);
+  --mh-accent-mark: var(--mh-ruby-500);
 
-  --code-normal: #fda4af;
-  --code-background: #26191e;
+  --mh-tint-1: rgba(var(--mh-ruby-rgb), 0.09);
+  --mh-tint-2: rgba(var(--mh-ruby-rgb), 0.15);
+  --mh-tint-3: rgba(var(--mh-ruby-rgb), 0.24);
+  --mh-tint-line: rgba(251, 113, 133, 0.26);
+
+  --mh-wash: radial-gradient(
+    118% 44% at 50% 0%,
+    rgba(251, 113, 133, 0.075),
+    rgba(251, 113, 133, 0) 62%
+  );
+
+  --mh-shadow-sheet:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 18px 44px -26px rgba(0, 0, 0, 0.9);
+  --mh-shadow-pop:
+    0 2px 8px rgba(0, 0, 0, 0.55),
+    0 22px 52px -22px rgba(0, 0, 0, 0.95);
+
+  --mh-mark: rgba(250, 204, 21, 0.26);
+  --mh-marker: rgba(251, 113, 133, 0.5);
+
+  /* Dark carries more bloom, since glow only reads against a dark surface. */
+  --mh-glow: 0 0 12px rgba(251, 113, 133, 0.45);
+  --mh-glow-strong: 0 0 20px rgba(251, 113, 133, 0.62);
+  --mh-title-sheen: linear-gradient(
+    178deg,
+    #ffffff 0%,
+    var(--mh-ink) 42%,
+    var(--mh-ruby-300) 100%
+  );
+  --mh-title-bloom: drop-shadow(0 0 26px rgba(251, 113, 133, 0.2));
+  --mh-scroll: rgba(255, 255, 255, 0.14);
+  --mh-scroll-hover: rgba(255, 255, 255, 0.26);
 }
+
+
+/* ==========================================================================
+   4. OBSIDIAN VARIABLE BRIDGE
+   Obsidian styles both Reading view and Live Preview from these variables,
+   so setting them here keeps the two views in step for free.
+   ========================================================================== */
 
 body {
-  --tab-radius-active: 6px;
-  --input-radius: 6px;
-  --button-radius: 6px;
-  --checkbox-radius: 4px;
+  /* --- Surfaces --------------------------------------------------------- */
+  --background-primary: var(--mh-sheet);
+  --background-primary-alt: var(--mh-raised);
+  --background-secondary: var(--mh-canvas-2);
+  --background-secondary-alt: var(--mh-canvas);
+  --background-modifier-border: var(--mh-rule);
+  --background-modifier-border-hover: var(--mh-rule-strong);
+  --background-modifier-border-focus: var(--mh-accent-mark);
+  --background-modifier-hover: var(--mh-tint-1);
+  --background-modifier-active-hover: var(--mh-tint-2);
+  --background-modifier-form-field: var(--mh-sheet);
+  --divider-color: var(--mh-rule);
+  --divider-color-hover: var(--mh-tint-line);
+  --divider-width: 1px;
+
+  /* --- Text ------------------------------------------------------------- */
+  --text-normal: var(--mh-ink);
+  --text-muted: var(--mh-ink-2);
+  --text-faint: var(--mh-ink-3);
+  --text-accent: var(--mh-accent-text);
+  --text-accent-hover: var(--mh-accent-text-hover);
+  --text-on-accent: #fff7f9;
+  --text-selection: var(--mh-tint-3);
+  --text-highlight-bg: var(--mh-mark);
+  --caret-color: var(--mh-accent-mark);
+
+  --bold-weight: 650;
+  --bold-color: var(--mh-bold);
+  --italic-color: inherit;
+
+  /* --- Accent ----------------------------------------------------------- */
+  --accent-color: var(--ruby);
+  --interactive-accent: var(--ruby);
+  --interactive-accent-hover: var(--mh-ruby-700);
+  --interactive-hover: var(--mh-raised);
+
+  /* --- Type scale --------------------------------------------------------
+     Sizes are em relative to the note text size, so the whole scale follows
+     Obsidian's font size setting instead of fighting it.                   */
+  --font-text: var(--mh-font-sans);
+  --font-interface: var(--mh-font-sans);
+  --font-monospace: var(--mh-font-mono);
+  --font-text-size: 16px;
+  --line-height-normal: 1.7;
+  --line-height-tight: 1.35;
+
+  --inline-title-font: var(--mh-font-display);
+  --inline-title-size: 2.5em;
+  --inline-title-weight: 800;
+  --inline-title-line-height: 1.1;
+  --inline-title-color: var(--mh-ink);
+
+  --h1-font: var(--mh-font-display);
+  --h1-size: 1.75em;
+  --h1-weight: 750;
+  --h1-line-height: 1.22;
+  --h1-color: var(--mh-ink);
+
+  --h2-font: var(--mh-font-display);
+  --h2-size: 1.32em;
+  --h2-weight: 690;
+  --h2-line-height: 1.3;
+  --h2-color: var(--mh-ink);
+
+  --h3-font: var(--mh-font-display);
+  --h3-size: 1.1em;
+  --h3-weight: 660;
+  --h3-line-height: 1.4;
+  --h3-color: var(--mh-accent-text);
+
+  --h4-font: var(--mh-font-display);
+  --h4-size: 0.9em;
+  --h4-weight: 700;
+  --h4-line-height: 1.45;
+  --h4-color: var(--mh-ink-2);
+
+  --h5-font: var(--mh-font-display);
+  --h5-size: 0.82em;
+  --h5-weight: 700;
+  --h5-line-height: 1.45;
+  --h5-color: var(--mh-ink-3);
+
+  --h6-font: var(--mh-font-display);
+  --h6-size: 0.78em;
+  --h6-weight: 700;
+  --h6-line-height: 1.45;
+  --h6-color: var(--mh-ink-3);
+
+  --heading-formatting: var(--mh-ink-3);
+
+  /* --- Rhythm and measure ------------------------------------------------ */
+  --file-line-width: 46rem;
+  --file-margins: 2.6rem 2.2rem 5rem;
+  --p-spacing: 1rem;
+  --p-spacing-empty: 0.4rem;
+  --heading-spacing: 2rem;
+  --list-indent: 1.7em;
+  --list-spacing: 0.18em;
+  --list-marker-color: var(--mh-marker);
+  --list-marker-color-hover: var(--mh-accent-mark);
+  --indentation-guide-color: var(--mh-rule);
+  --indentation-guide-color-active: var(--mh-tint-line);
+  --indentation-guide-width: 1px;
+
+  /* --- Links -------------------------------------------------------------- */
+  --link-color: var(--mh-accent-text);
+  --link-color-hover: var(--mh-accent-text-hover);
+  --link-decoration: underline;
+  --link-decoration-hover: underline;
+  --link-decoration-thickness: 1px;
+  --link-external-color: var(--mh-accent-text);
+  --link-external-color-hover: var(--mh-accent-text-hover);
+  --link-external-decoration: underline;
+  --link-unresolved-color: var(--mh-ink-3);
+  --link-unresolved-opacity: 1;
+  --link-unresolved-decoration-style: dashed;
+  --link-unresolved-decoration-color: var(--mh-rule-strong);
+
+  /* --- Tags ---------------------------------------------------------------- */
+  --tag-color: var(--mh-accent-text);
+  --tag-background: var(--mh-tint-1);
+  --tag-background-hover: var(--mh-tint-2);
+  --tag-border-color: var(--mh-tint-line);
+  --tag-border-color-hover: var(--mh-accent-mark);
+  --tag-border-width: 1px;
+  --tag-radius: var(--mh-radius-pill);
+  --tag-padding-x: 0.62em;
+  --tag-padding-y: 0.2em;
+  --tag-size: 0.82em;
+  --tag-weight: 550;
+
+  /* --- Tables --------------------------------------------------------------- */
+  --table-background: transparent;
+  --table-header-background: var(--mh-raised);
+  --table-header-background-hover: var(--mh-raised-2);
+  --table-header-color: var(--mh-ink-2);
+  --table-header-weight: 700;
+  --table-header-size: 0.76em;
+  --table-line-height: 1.55;
+  --table-text-color: var(--text-normal);
+  --table-text-size: 0.94em;
+  --table-column-alt-background: transparent;
+  --table-row-alt-background: transparent;
+  --table-row-background-hover: var(--mh-tint-1);
+  --table-border-color: var(--mh-rule);
+  --table-border-width: 1px;
+  --table-cell-padding: 0.6em 0.85em;
+
+  /* --- Code ------------------------------------------------------------------ */
+  --code-background: var(--mh-raised);
+  --code-normal: var(--mh-accent-text);
+  --code-size: 0.875em;
+  --code-radius: var(--mh-radius-md);
+  --code-white-space: pre-wrap;
+
+  /* --- Quotes and callouts ---------------------------------------------------- */
+  --blockquote-border-thickness: 3px;
+  --blockquote-border-color: var(--mh-accent-mark);
+  --blockquote-color: var(--text-normal);
+  --blockquote-font-style: normal;
+  --blockquote-background-color: var(--mh-tint-1);
+
+  --callout-border-width: 0;
+  --callout-border-opacity: 0.2;
+  --callout-padding: 0.85em 1.05em;
+  --callout-radius: var(--mh-radius-md);
+  --callout-title-size: 0.96em;
+  --callout-title-weight: 650;
+  --callout-blend-mode: normal;
+
+  /* --- Rules and embeds --------------------------------------------------------- */
+  --hr-color: var(--mh-rule);
+  --hr-thickness: 1px;
+  --embed-background: var(--mh-tint-1);
+  --embed-border-left: 3px solid var(--mh-tint-line);
+  --embed-padding: 0.1em 0 0.1em 1.1em;
+  --embed-font-style: inherit;
+
+  /* --- Checkboxes ------------------------------------------------------------------ */
+  --checkbox-color: var(--interactive-accent);
+  --checkbox-color-hover: var(--mh-ruby-700);
+  --checkbox-border-color: var(--mh-rule-strong);
+  --checkbox-border-color-hover: var(--mh-accent-mark);
+  --checkbox-radius: 5px;
+  --checkbox-size: 1.05em;
+  --checklist-done-color: var(--mh-ink-3);
+  --checklist-done-decoration: line-through;
+
+  /* --- Properties / frontmatter ------------------------------------------------------ */
+  --metadata-background: transparent;
+  --metadata-border-color: transparent;
+  --metadata-border-width: 0;
+  --metadata-padding: 0;
+  --metadata-divider-color: transparent;
+  --metadata-property-padding: 0.16em 0;
+  --metadata-label-text-color: var(--mh-ink-3);
+  --metadata-label-font-size: 0.74em;
+  --metadata-label-font-weight: 700;
+  --metadata-label-width: 8.5rem;
+  --metadata-input-text-color: var(--text-normal);
+  --metadata-input-font-size: 0.9em;
+
+  /* --- Chrome ------------------------------------------------------------------------- */
+  --radius-s: var(--mh-radius-xs);
+  --radius-m: var(--mh-radius-sm);
+  --radius-l: var(--mh-radius-md);
+  --input-radius: var(--mh-radius-sm);
+  --button-radius: var(--mh-radius-sm);
+  --tab-radius-active: var(--mh-radius-sm);
+  --tab-text-color-focused-active-current: var(--text-normal);
+  --titlebar-background: var(--mh-canvas);
+  --titlebar-background-focused: var(--mh-canvas);
+  --ribbon-background: var(--mh-canvas);
+  --ribbon-background-collapsed: var(--mh-canvas);
+  --status-bar-background: var(--mh-canvas);
+  --status-bar-border-width: 0;
+  --nav-item-size: 0.86em;
+  --nav-item-weight: 480;
+  --nav-item-weight-hover: 520;
+  --nav-item-weight-active: 620;
+  --nav-item-color-active: var(--mh-accent-text);
+  --nav-item-background-active: var(--mh-tint-2);
+  --nav-item-background-hover: var(--mh-tint-1);
+  --nav-indentation-guide-color: var(--mh-rule);
+  --nav-item-parent-color: var(--text-muted);
+  --shadow-s: var(--mh-shadow-sheet);
+  --shadow-l: var(--mh-shadow-pop);
+  --prompt-border-width: 1px;
+  --prompt-border-color: var(--mh-rule);
+  --modal-border-width: 1px;
+  --modal-border-color: var(--mh-rule);
+  --modal-radius: var(--mh-radius-lg);
+  --icon-color-hover: var(--mh-accent-text);
+  --icon-color-focused: var(--mh-accent-text);
+  --scrollbar-thumb-bg: var(--mh-scroll);
+  --scrollbar-active-thumb-bg: var(--mh-scroll-hover);
+  --scrollbar-bg: transparent;
+
+  --graph-line: var(--mh-rule-strong);
+  --graph-node: var(--mh-ink-2);
+  --graph-node-focused: var(--ruby);
+  --graph-node-tag: var(--mh-ruby-400);
+  --graph-node-attachment: var(--mh-ink-3);
 }
+
+
+/* ==========================================================================
+   5. APP CHROME
+   The chrome recedes so the note is the only thing with contrast.
+   ========================================================================== */
 
 .workspace,
 .workspace-split.mod-root,
-.mod-root .workspace-tab-header-container {
-  background-color: var(--background-primary);
+.workspace-split.mod-root .workspace-tab-header-container {
+  background-color: var(--mh-canvas);
 }
 
-.workspace-tabs .workspace-leaf {
-  border-radius: 0;
+.workspace-split.mod-left-split,
+.workspace-split.mod-right-split,
+.workspace-split.mod-left-split .workspace-tab-header-container,
+.workspace-split.mod-right-split .workspace-tab-header-container {
+  background-color: var(--mh-canvas-2);
+}
+
+/* Tabs: a hairline base with an accent seat under the active tab. */
+.workspace-split.mod-root .workspace-tab-header-container {
+  border-bottom: 1px solid var(--mh-rule);
+}
+
+.workspace-tab-header-inner {
+  border-radius: var(--mh-radius-sm) var(--mh-radius-sm) 0 0;
 }
 
 .workspace-tab-header.is-active {
@@ -118,179 +514,1214 @@ body {
   display: none;
 }
 
-.workspace-tab-header.is-active .workspace-tab-header-inner {
-  box-shadow: inset 0 -2px 0 var(--interactive-accent);
+.workspace-split.mod-root .workspace-tab-header.is-active .workspace-tab-header-inner {
+  background-color: var(--mh-sheet);
+  box-shadow: inset 0 2px 0 var(--interactive-accent);
 }
 
-.nav-folder-title,
-.nav-file-title {
-  border-radius: 6px;
+.workspace-tab-header-inner-title {
+  font-weight: 550;
+  letter-spacing: -0.005em;
 }
 
-.nav-file-title.is-active {
-  background: var(--ruby-soft);
-  color: var(--text-accent);
+/* View header above a note, kept as a thin utility strip. */
+.view-header {
+  background-color: transparent;
+  border-bottom: none;
 }
 
-.nav-folder-title:hover,
-.nav-file-title:hover {
-  background: var(--background-modifier-hover);
+.view-header-title {
+  font-weight: 620;
+  letter-spacing: -0.012em;
+  color: var(--text-muted);
+}
+
+.workspace-leaf.mod-active .view-header-title {
+  color: var(--text-normal);
+}
+
+.status-bar {
+  border-top: 1px solid var(--mh-rule);
+  font-size: 0.78em;
+  color: var(--text-faint);
+}
+
+
+/* ==========================================================================
+   6. THE READING SURFACE
+   A single sheet colour for the note, plus a faint accent wash pinned to the
+   top of the pane. The wash does not scroll, so it reads as page ambience.
+   ========================================================================== */
+
+.workspace-split.mod-root .workspace-leaf-content[data-type="markdown"] {
+  background-color: var(--mh-sheet);
+  background-image: var(--mh-wash);
+  background-repeat: no-repeat;
+  background-size: 100% 22rem;
+}
+
+/* Let the wash show through the scrolling layers. */
+.markdown-reading-view,
+.markdown-source-view,
+.markdown-source-view .cm-editor,
+.markdown-source-view .cm-scroller,
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-gutters {
+  background-color: transparent;
 }
 
 .markdown-source-view,
 .markdown-preview-view {
   color: var(--text-normal);
+  font-family: var(--mh-font-sans);
+  font-variant-numeric: tabular-nums lining-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-.markdown-preview-view,
-.markdown-source-view.mod-cm6 .cm-content {
-  max-width: 900px;
-  margin-inline: auto;
+/* Runway at the foot of the page so the last section can scroll clear. */
+.markdown-preview-view .mod-footer {
+  padding-bottom: 4rem;
 }
+
+/* Wider gutters once the pane can afford them. */
+@media (min-width: 1200px) {
+  body {
+    --file-margins: 3rem 3rem 5rem;
+  }
+}
+
+
+/* ==========================================================================
+   7. MASTHEAD
+   Title, accent kicker and a properties strip. This is the block that makes
+   a note read as a page rather than a text file.
+   ========================================================================== */
+
+.inline-title {
+  position: relative;
+  padding-top: 1.1rem;
+  margin-bottom: 0.1em;
+  font-family: var(--mh-font-display);
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+  filter: var(--mh-title-bloom);
+}
+
+/* A vertical sheen poured through the glyphs: neutral ink at the top,
+   warming into ruby at the baseline. The gradient runs top to bottom on
+   purpose, so a two word title catches it exactly like a ten word one. */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .inline-title {
+    background-image: var(--mh-title-sheen);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Clipped glyphs have no fill of their own, so a selection highlight
+     would swallow them. Renaming a note restores solid ink. */
+  .inline-title:focus,
+  .inline-title:focus-within {
+    background-image: none;
+    -webkit-text-fill-color: var(--inline-title-color);
+    filter: none;
+  }
+}
+
+/* The kicker: a cut ruby bar that opens every page and catches the light
+   once as the note is drawn. Delete the animation line to keep it still. */
+.inline-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.25rem;
+  height: 3px;
+  border-radius: 2px;
+  background-image:
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0) 22%,
+      rgba(255, 255, 255, 0.92) 50%,
+      rgba(255, 255, 255, 0) 78%
+    ),
+    linear-gradient(
+      90deg,
+      var(--mh-ruby-700) 0%,
+      var(--mh-ruby-500) 45%,
+      var(--mh-ruby-300) 100%
+    );
+  background-size: 260% 100%, 100% 100%;
+  background-position: 260% 0, 0 0;
+  background-repeat: no-repeat;
+  box-shadow: var(--mh-glow);
+  animation: mh-kicker-sheen 1500ms var(--mh-ease) 300ms 1;
+}
+
+@keyframes mh-kicker-sheen {
+  from {
+    background-position: -170% 0, 0 0;
+  }
+  to {
+    background-position: 260% 0, 0 0;
+  }
+}
+
+/* Properties render as an editorial meta strip: hairline above and below,
+   labels as small caps style micro type, values in reading colour. */
+.metadata-container {
+  margin-top: 1.15rem;
+  margin-bottom: 2.2rem;
+  padding: 0.55rem 0 0.65rem;
+  border: none;
+  border-top: 1px solid var(--mh-rule);
+  border-bottom: 1px solid var(--mh-rule);
+  border-radius: 0;
+  background: transparent;
+}
+
+.metadata-container .metadata-properties-heading {
+  display: none;
+}
+
+.metadata-property {
+  padding-block: 0.16em;
+}
+
+.metadata-property-key,
+.metadata-property-key-input {
+  color: var(--mh-ink-3);
+  font-size: 0.74em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.metadata-property-icon {
+  color: var(--mh-ink-3);
+  opacity: 0.7;
+}
+
+.metadata-property-value,
+.metadata-property .metadata-input-longtext {
+  color: var(--text-normal);
+  font-size: 0.92em;
+}
+
+/* Frontmatter dates and the OKF type field are the two fastest orientation
+   cues in this vault, so they get a touch more presence. */
+.metadata-property[data-property-key="type"] .metadata-property-value {
+  color: var(--mh-accent-text);
+  font-weight: 600;
+}
+
+.metadata-add-button {
+  color: var(--text-faint);
+}
+
+/* Live Preview shows raw frontmatter when properties are set to source. */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-frontmatter,
+.markdown-source-view.mod-cm6 .cm-line.cm-line-frontmatter {
+  color: var(--text-muted);
+  font-family: var(--mh-font-mono);
+  font-size: 0.85em;
+}
+
+
+/* ==========================================================================
+   8. HEADINGS
+   h1 opens a chapter with a fading rule. h2 carries an accent bar above it.
+   h3 is accent coloured. h4 and below are uppercase micro labels.
+   Reading view and Live Preview are styled together at every level.
+   ========================================================================== */
 
 .markdown-rendered h1,
-.cm-header-1 {
-  color: var(--text-normal);
-  font-weight: 750;
-}
-
 .markdown-rendered h2,
-.cm-header-2 {
-  color: var(--text-normal);
-  font-weight: 700;
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6,
+.markdown-source-view.mod-cm6 .HyperMD-header {
+  font-family: var(--mh-font-display);
+  text-wrap: balance;
 }
 
-.markdown-rendered h3,
-.cm-header-3 {
-  color: var(--text-accent);
-  font-weight: 680;
+/* --- h1: chapter ---------------------------------------------------------- */
+
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  position: relative;
+  letter-spacing: var(--mh-display-tracking);
+  padding-bottom: 0.32em;
 }
 
 .markdown-rendered h1 {
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--ruby-line);
+  margin-top: 1.55em;
+  margin-bottom: 0.5em;
 }
 
-.markdown-rendered hr {
-  border-color: var(--background-modifier-border);
+/* The rule under a chapter is two layers: a lit ruby cap that holds the
+   left edge, running out into a hairline that fades away to the right. */
+.markdown-rendered h1::before,
+.markdown-source-view.mod-cm6 .HyperMD-header-1::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 3.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--mh-ruby-600) 0%,
+    var(--mh-ruby-400) 62%,
+    rgba(var(--mh-ruby-rgb), 0) 100%
+  );
+  box-shadow: var(--mh-glow);
+  transition:
+    width var(--mh-med) var(--mh-ease),
+    box-shadow var(--mh-med) var(--mh-ease);
 }
+
+.markdown-rendered h1::after,
+.markdown-source-view.mod-cm6 .HyperMD-header-1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--mh-tint-line) 0%,
+    var(--mh-rule) 34%,
+    transparent 94%
+  );
+}
+
+.markdown-rendered h1:hover::before {
+  width: 4.6rem;
+  box-shadow: var(--mh-glow-strong);
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  padding-top: 1.1em;
+}
+
+/* --- h2: section ---------------------------------------------------------- */
+
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  position: relative;
+  letter-spacing: -0.018em;
+  padding-top: 0.72em;
+}
+
+.markdown-rendered h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.45em;
+}
+
+/* A section is marked by a cut ruby facet trailing a line of light. The
+   two pseudo-elements share --mh-mark-top so they stay on one axis: the
+   bar centre sits 1px below it, the 7px facet centre 3.5px below its own
+   top, so the facet is offset by 2.5px to line up. */
+.markdown-rendered h2::after,
+.markdown-source-view.mod-cm6 .HyperMD-header-2::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--mh-mark-top) - 2.5px);
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 1.5px;
+  transform: rotate(45deg);
+  background: linear-gradient(
+    135deg,
+    var(--mh-ruby-400) 0%,
+    var(--mh-ruby-700) 100%
+  );
+  box-shadow: var(--mh-glow);
+  transition: box-shadow var(--mh-med) var(--mh-ease);
+}
+
+.markdown-rendered h2::before,
+.markdown-source-view.mod-cm6 .HyperMD-header-2::before {
+  content: "";
+  position: absolute;
+  top: var(--mh-mark-top);
+  left: 0.85rem;
+  width: 1.4rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--mh-ruby-500) 0%,
+    rgba(var(--mh-ruby-rgb), 0) 100%
+  );
+  transition: width var(--mh-med) var(--mh-ease);
+}
+
+.markdown-rendered h2:hover::after {
+  box-shadow: var(--mh-glow-strong);
+}
+
+.markdown-rendered h2:hover::before {
+  width: 1.95rem;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  padding-top: 1.35em;
+}
+
+/* --- h3: accent lead-in ---------------------------------------------------- */
+
+.markdown-rendered h3,
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  letter-spacing: -0.008em;
+}
+
+.markdown-rendered h3 {
+  margin-top: 1.75em;
+  margin-bottom: 0.35em;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  padding-top: 1em;
+}
+
+/* h3 is already ruby, so its sparkle is a faint bloom around the glyphs.
+   Light mode leaves it alone, where bloom only reads as a smudge. */
+.theme-dark .markdown-rendered h3,
+.theme-dark .markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  text-shadow: 0 0 22px rgba(251, 113, 133, 0.32);
+}
+
+/* --- h4 to h6: micro labels ------------------------------------------------- */
+
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6,
+.markdown-source-view.mod-cm6 .HyperMD-header-4 .cm-header-4:not(.cm-formatting),
+.markdown-source-view.mod-cm6 .HyperMD-header-5 .cm-header-5:not(.cm-formatting),
+.markdown-source-view.mod-cm6 .HyperMD-header-6 .cm-header-6:not(.cm-formatting) {
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  margin-top: 1.9em;
+  margin-bottom: 0.3em;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-header-4,
+.markdown-source-view.mod-cm6 .HyperMD-header-5,
+.markdown-source-view.mod-cm6 .HyperMD-header-6 {
+  padding-top: 0.9em;
+}
+
+/* First heading in a note should not push a second gap under the masthead. */
+.markdown-preview-view .mod-header + div > :is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0.2em;
+}
+
+/* The `#` markers in Live Preview stay legible but out of the way. */
+.markdown-source-view.mod-cm6 .cm-formatting-header {
+  color: var(--heading-formatting);
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+/* Heading collapse arrows sit in the gutter, revealed on hover. */
+.markdown-rendered .heading-collapse-indicator {
+  color: var(--text-faint);
+  opacity: 0;
+  transition: opacity var(--mh-fast) var(--mh-ease);
+}
+
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6):hover .heading-collapse-indicator {
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   9. BODY TEXT AND EMPHASIS
+   ========================================================================== */
+
+.markdown-rendered p,
+.markdown-source-view.mod-cm6 .cm-line {
+  line-height: var(--line-height-normal);
+}
+
+.markdown-rendered p {
+  margin-block: var(--p-spacing);
+  text-wrap: pretty;
+}
+
+/* Bold is a scanning aid in this vault (log entries open with a bold verb),
+   so it gets real weight and the darkest ink. */
+.markdown-rendered strong,
+.markdown-source-view.mod-cm6 .cm-strong {
+  color: var(--bold-color);
+  font-weight: var(--bold-weight);
+  letter-spacing: -0.003em;
+}
+
+.markdown-rendered em,
+.markdown-source-view.mod-cm6 .cm-em {
+  color: var(--text-normal);
+}
+
+/* Highlights use amber so they never read as a link or a tag. */
+.markdown-rendered mark,
+.markdown-source-view.mod-cm6 .cm-highlight {
+  background-color: var(--mh-mark);
+  border-radius: 3px;
+  padding: 0.06em 0.18em;
+  color: var(--text-normal);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.markdown-rendered sub,
+.markdown-rendered sup {
+  line-height: 0;
+}
+
+::selection {
+  background-color: var(--text-selection);
+}
+
+
+/* ==========================================================================
+   10. LINKS
+   Underlines are always present but quiet, then firm up on hover. That keeps
+   dense index pages readable while still marking every link.
+   ========================================================================== */
 
 .markdown-rendered a,
-.cm-hmd-internal-link,
-.cm-link {
+.markdown-rendered .internal-link,
+.markdown-rendered .external-link {
   color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-color: var(--mh-tint-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.19em;
+  border-radius: 3px;
+  transition:
+    color var(--mh-fast) var(--mh-ease),
+    text-decoration-color var(--mh-fast) var(--mh-ease);
 }
 
 .markdown-rendered a:hover,
-.cm-hmd-internal-link:hover,
-.cm-link:hover {
+.markdown-rendered .internal-link:hover,
+.markdown-rendered .external-link:hover {
   color: var(--link-color-hover);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
 }
 
-.metadata-container {
-  border: 1px solid var(--background-modifier-border);
-  border-radius: 8px;
-  background: var(--background-primary-alt);
-  padding: 0.45rem 0.65rem;
+/* Links to notes that do not exist yet are marked as gaps, not errors. */
+.markdown-rendered a.is-unresolved,
+.markdown-rendered .internal-link.is-unresolved {
+  color: var(--link-unresolved-color);
+  text-decoration-style: dashed;
+  text-decoration-color: var(--mh-rule-strong);
 }
 
-.metadata-property-key {
-  color: var(--text-muted);
+.markdown-source-view.mod-cm6 .cm-link,
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link,
+.markdown-source-view.mod-cm6 .cm-underline {
+  color: var(--link-color);
 }
 
-.metadata-property-value {
-  color: var(--text-normal);
+.markdown-source-view.mod-cm6 .cm-url,
+.markdown-source-view.mod-cm6 .cm-formatting-link {
+  color: var(--text-faint);
 }
 
-.tag,
-.cm-hashtag {
-  border: 1px solid var(--ruby-line);
-  border-radius: 999px;
+
+/* ==========================================================================
+   11. TAGS
+   ========================================================================== */
+
+.markdown-rendered a.tag,
+.markdown-source-view.mod-cm6 .cm-hashtag {
+  text-decoration: none;
+  line-height: 1.6;
+  transition:
+    background-color var(--mh-fast) var(--mh-ease),
+    border-color var(--mh-fast) var(--mh-ease);
+}
+
+.markdown-source-view.mod-cm6 .cm-hashtag {
+  border: 1px solid var(--tag-border-color);
+  background-color: var(--tag-background);
   color: var(--tag-color);
-  background: var(--tag-background);
-  padding-inline: 0.45em;
+  padding-block: var(--tag-padding-y);
 }
 
-.tag:hover,
-.cm-hashtag:hover {
-  background: var(--tag-background-hover);
+.markdown-source-view.mod-cm6 .cm-hashtag-begin {
+  border-right: none;
+  border-radius: var(--tag-radius) 0 0 var(--tag-radius);
+  padding-left: var(--tag-padding-x);
+}
+
+.markdown-source-view.mod-cm6 .cm-hashtag-end {
+  border-left: none;
+  border-radius: 0 var(--tag-radius) var(--tag-radius) 0;
+  padding-right: var(--tag-padding-x);
+}
+
+.markdown-rendered a.tag:hover,
+.markdown-source-view.mod-cm6 .cm-hashtag:hover {
+  background-color: var(--tag-background-hover);
+  border-color: var(--tag-border-color-hover);
   color: var(--tag-color);
 }
 
-.markdown-rendered blockquote {
-  border-left: 3px solid var(--interactive-accent);
-  background: var(--ruby-softer);
-  border-radius: 0 6px 6px 0;
-  color: var(--text-normal);
-  padding: 0.55rem 0.85rem;
+
+/* ==========================================================================
+   12. LISTS AND TASKS
+   ========================================================================== */
+
+.markdown-rendered ul,
+.markdown-rendered ol {
+  padding-inline-start: var(--list-indent);
 }
 
-.markdown-rendered table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid var(--background-modifier-border);
-  border-radius: 8px;
-  overflow: hidden;
+.markdown-rendered li {
+  margin-block: var(--list-spacing);
 }
 
-.markdown-rendered th {
-  background: var(--background-secondary);
-  color: var(--text-normal);
+.markdown-rendered li::marker {
+  color: var(--list-marker-color);
+  font-weight: 600;
 }
 
-.markdown-rendered th,
-.markdown-rendered td {
-  border-color: var(--background-modifier-border);
+.markdown-rendered ol > li::marker {
+  color: var(--mh-accent-text);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.92em;
 }
 
-pre,
-code,
-.cm-inline-code {
-  border-radius: 5px;
+/* Nested levels step down in emphasis. */
+.markdown-rendered ul ul > li::marker {
+  color: var(--mh-rule-strong);
 }
 
-pre,
-.HyperMD-codeblock,
-.markdown-rendered pre {
-  border: 1px solid var(--background-modifier-border);
+.markdown-rendered .task-list-item {
+  padding-left: 0;
 }
 
-.callout {
-  border-radius: 8px;
-  border: 1px solid var(--background-modifier-border);
-  background: var(--background-primary-alt);
+.markdown-rendered .task-list-item-checkbox {
+  margin-inline-end: 0.55em;
+  transition:
+    background-color var(--mh-fast) var(--mh-ease),
+    border-color var(--mh-fast) var(--mh-ease);
 }
 
-.callout[data-callout="todo"],
-.callout[data-callout="question"],
-.callout[data-callout="summary"] {
-  --callout-color: 225, 29, 72;
-}
-
-input[type="checkbox"]:checked {
+input[type="checkbox"]:checked,
+.markdown-rendered .task-list-item-checkbox:checked {
   background-color: var(--interactive-accent);
   border-color: var(--interactive-accent);
 }
 
+.markdown-rendered .task-list-item.is-checked {
+  color: var(--checklist-done-color);
+}
+
+
+/* ==========================================================================
+   13. TABLES
+   Data table treatment: micro-label header, hairline rows, hover highlight,
+   and a stronger first column because these tables are mostly key/value.
+   ========================================================================== */
+
+.markdown-rendered table {
+  width: 100%;
+  margin-block: 1.5em;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--table-border-color);
+  border-radius: var(--mh-radius-md);
+  overflow: hidden;
+  font-size: var(--table-text-size);
+  box-shadow: var(--mh-shadow-sheet);
+}
+
+.markdown-rendered thead {
+  background-color: var(--table-header-background);
+}
+
+.markdown-rendered th {
+  padding: 0.72em 0.9em;
+  color: var(--table-header-color);
+  font-size: var(--table-header-size);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 1px solid var(--table-border-color);
+}
+
+.markdown-rendered td {
+  padding: var(--table-cell-padding);
+  border-top: 1px solid var(--mh-rule);
+  vertical-align: top;
+  line-height: var(--table-line-height);
+}
+
+.markdown-rendered tbody tr:first-child td {
+  border-top: none;
+}
+
+.markdown-rendered tbody tr {
+  transition: background-color var(--mh-fast) var(--mh-ease);
+}
+
+.markdown-rendered tbody tr:hover {
+  background-color: var(--table-row-background-hover);
+}
+
+/* The left column is the label in nearly every table here. */
+.markdown-rendered tbody td:first-child {
+  font-weight: 570;
+  color: var(--text-normal);
+}
+
+.markdown-rendered table p {
+  margin-block: 0;
+}
+
+/* Live Preview table rows, kept legible without the full chrome. */
+.markdown-source-view.mod-cm6 .HyperMD-table-row {
+  font-family: var(--mh-font-mono);
+  font-size: 0.86em;
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   14. CODE
+   Blocks get a language badge in the top left, a hairline frame and a raised
+   surface. Inline code is a small pill so it separates from prose.
+   ========================================================================== */
+
+.markdown-rendered code,
+.markdown-source-view.mod-cm6 .cm-inline-code {
+  font-family: var(--mh-font-mono);
+  font-size: var(--code-size);
+  font-variant-ligatures: none;
+}
+
+/* Inline code */
+.markdown-rendered :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-inline-code {
+  padding: 0.12em 0.38em;
+  border: 1px solid var(--mh-rule);
+  border-radius: var(--mh-radius-xs);
+  background-color: var(--code-background);
+  color: var(--code-normal);
+  white-space: break-spaces;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Block code */
+.markdown-rendered pre {
+  position: relative;
+  margin-block: 1.5em;
+  padding: 1.05em 1.15em;
+  border: 1px solid var(--mh-rule);
+  border-radius: var(--code-radius);
+  background-color: var(--code-background);
+  box-shadow: var(--mh-shadow-sheet);
+  line-height: 1.62;
+  tab-size: 2;
+}
+
+.markdown-rendered pre > code {
+  color: var(--text-normal);
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+/* Language badge. `:has()` reads the class Obsidian puts on the <code>
+   element, so it works whether or not the <pre> carries the class too. */
+.markdown-rendered pre:has(> code[class*="language-"]) {
+  padding-top: 2.25em;
+}
+
+.markdown-rendered pre:has(> code[class*="language-"])::before {
+  content: "code";
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.42em 0.85em 0.36em;
+  border-bottom: 1px solid var(--mh-rule);
+  border-right: 1px solid var(--mh-rule);
+  border-radius: var(--code-radius) 0 var(--mh-radius-sm) 0;
+  background-color: var(--mh-raised-2);
+  color: var(--text-faint);
+  font-family: var(--mh-font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.markdown-rendered pre:has(> code.language-powershell)::before { content: "PowerShell"; }
+.markdown-rendered pre:has(> code.language-bash)::before,
+.markdown-rendered pre:has(> code.language-sh)::before,
+.markdown-rendered pre:has(> code.language-shell)::before,
+.markdown-rendered pre:has(> code.language-zsh)::before { content: "Shell"; }
+.markdown-rendered pre:has(> code.language-text)::before,
+.markdown-rendered pre:has(> code.language-txt)::before,
+.markdown-rendered pre:has(> code.language-plaintext)::before { content: "Text"; }
+.markdown-rendered pre:has(> code.language-yaml)::before,
+.markdown-rendered pre:has(> code.language-yml)::before { content: "YAML"; }
+.markdown-rendered pre:has(> code.language-markdown)::before,
+.markdown-rendered pre:has(> code.language-md)::before { content: "Markdown"; }
+.markdown-rendered pre:has(> code.language-javascript)::before,
+.markdown-rendered pre:has(> code.language-js)::before { content: "JavaScript"; }
+.markdown-rendered pre:has(> code.language-typescript)::before,
+.markdown-rendered pre:has(> code.language-ts)::before { content: "TypeScript"; }
+.markdown-rendered pre:has(> code.language-python)::before,
+.markdown-rendered pre:has(> code.language-py)::before { content: "Python"; }
+.markdown-rendered pre:has(> code.language-json)::before { content: "JSON"; }
+.markdown-rendered pre:has(> code.language-css)::before { content: "CSS"; }
+.markdown-rendered pre:has(> code.language-html)::before { content: "HTML"; }
+.markdown-rendered pre:has(> code.language-sql)::before { content: "SQL"; }
+.markdown-rendered pre:has(> code.language-mermaid)::before { content: "Mermaid"; }
+.markdown-rendered pre:has(> code.language-diff)::before { content: "Diff"; }
+
+.markdown-rendered .copy-code-button {
+  top: 0.45em;
+  right: 0.5em;
+  padding: 0.28em 0.6em;
+  border: 1px solid var(--mh-rule);
+  border-radius: var(--mh-radius-xs);
+  background-color: var(--mh-raised-2);
+  color: var(--text-faint);
+  font-family: var(--mh-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity var(--mh-fast) var(--mh-ease);
+}
+
+.markdown-rendered pre:hover .copy-code-button {
+  opacity: 1;
+}
+
+.markdown-rendered .copy-code-button:hover {
+  color: var(--mh-accent-text);
+  border-color: var(--mh-tint-line);
+}
+
+/* Live Preview code blocks: same surface, framed as one continuous block. */
+.markdown-source-view.mod-cm6 .HyperMD-codeblock {
+  background-color: var(--code-background);
+  border-left: 1px solid var(--mh-rule);
+  border-right: 1px solid var(--mh-rule);
+  line-height: 1.62;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
+  border-top: 1px solid var(--mh-rule);
+  border-radius: var(--code-radius) var(--code-radius) 0 0;
+  padding-top: 0.5em;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-end {
+  border-bottom: 1px solid var(--mh-rule);
+  border-radius: 0 0 var(--code-radius) var(--code-radius);
+  padding-bottom: 0.5em;
+}
+
+.markdown-source-view.mod-cm6 .cm-formatting-code-block {
+  color: var(--text-faint);
+  font-size: 0.85em;
+}
+
+/* Mermaid diagrams sit on the raised surface like any other figure. */
+.markdown-rendered .mermaid {
+  margin-block: 1.5em;
+  padding: 1.15em;
+  border: 1px solid var(--mh-rule);
+  border-radius: var(--mh-radius-md);
+  background-color: var(--mh-raised);
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   15. QUOTES AND CALLOUTS
+   ========================================================================== */
+
+.markdown-rendered blockquote {
+  margin-block: 1.35em;
+  margin-inline: 0;
+  padding: 0.85em 1.15em;
+  border: none;
+  border-left: var(--blockquote-border-thickness) solid var(--blockquote-border-color);
+  border-radius: 0 var(--mh-radius-md) var(--mh-radius-md) 0;
+  background-color: var(--blockquote-background-color);
+  color: var(--blockquote-color);
+  font-style: var(--blockquote-font-style);
+}
+
+.markdown-rendered blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown-rendered blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-quote {
+  border-left: var(--blockquote-border-thickness) solid var(--blockquote-border-color);
+  background-color: var(--blockquote-background-color);
+  padding-left: 0.9em;
+}
+
+.callout {
+  margin-block: 1.4em;
+  border: 1px solid var(--mh-rule);
+  border-left: 3px solid rgb(var(--callout-color));
+  border-radius: var(--callout-radius);
+  background-color: var(--mh-raised);
+  box-shadow: var(--mh-shadow-sheet);
+  mix-blend-mode: var(--callout-blend-mode);
+}
+
+.callout-title {
+  padding-bottom: 0.15em;
+  font-weight: var(--callout-title-weight);
+  letter-spacing: -0.008em;
+}
+
+.callout-icon .svg-icon {
+  color: rgb(var(--callout-color));
+}
+
+.callout-content > :first-child {
+  margin-top: 0.25em;
+}
+
+.callout-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Callout types that carry the vault's own accent. */
+.callout[data-callout="todo"],
+.callout[data-callout="question"],
+.callout[data-callout="summary"],
+.callout[data-callout="abstract"],
+.callout[data-callout="tldr"] {
+  --callout-color: var(--mh-ruby-rgb);
+}
+
+
+/* ==========================================================================
+   16. RULES, IMAGES, EMBEDS, FOOTNOTES
+   ========================================================================== */
+
+.markdown-rendered hr {
+  margin-block: 2.6em;
+  height: 1px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--mh-rule-strong) 22%,
+    var(--mh-rule-strong) 78%,
+    transparent 100%
+  );
+  opacity: 0.85;
+}
+
+.markdown-rendered img:not(.emoji) {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--mh-radius-md);
+  box-shadow: var(--mh-shadow-sheet);
+}
+
+.markdown-rendered .internal-embed .markdown-embed {
+  padding-left: 1.1em;
+  border-left: var(--embed-border-left);
+  background-color: var(--embed-background);
+  border-radius: 0 var(--mh-radius-md) var(--mh-radius-md) 0;
+}
+
+.markdown-rendered .footnotes {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--mh-rule);
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+.markdown-rendered .footnote-ref a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.82em;
+}
+
+
+/* ==========================================================================
+   17. SIDE PANELS
+   The explorer, outline and backlinks are navigation surfaces, so they get
+   quiet type, clear active state and a ruby marker for "you are here".
+   ========================================================================== */
+
+.nav-folder-title,
+.nav-file-title,
+.tree-item-self {
+  border-radius: var(--mh-radius-sm);
+  transition:
+    background-color var(--mh-fast) var(--mh-ease),
+    color var(--mh-fast) var(--mh-ease);
+}
+
+.nav-folder-title-content,
+.nav-file-title-content {
+  letter-spacing: -0.004em;
+}
+
+.nav-folder-title {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover,
+.tree-item-self:hover {
+  background-color: var(--mh-tint-1);
+}
+
+/* Active note: tint plus a ruby seat on the left edge. */
+.nav-file-title.is-active,
+.tree-item-self.is-active {
+  position: relative;
+  background-color: var(--mh-tint-2);
+  color: var(--mh-accent-text);
+  font-weight: 600;
+}
+
+.nav-file-title.is-active::before,
+.workspace-leaf-content[data-type="outline"] .tree-item-self.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background-color: var(--mh-accent-mark);
+}
+
+/* Outline reads as a table of contents: level 1 anchors, deeper levels
+   step back in weight and colour so the shape of the note is visible. */
+.workspace-leaf-content[data-type="outline"] .tree-item-self {
+  font-size: 0.85em;
+  line-height: 1.5;
+  padding-block: 0.18em;
+}
+
+.workspace-leaf-content[data-type="outline"]
+  > .view-content
+  > .outline
+  > .tree-item
+  > .tree-item-self {
+  font-weight: 640;
+  color: var(--text-normal);
+}
+
+.workspace-leaf-content[data-type="outline"] .tree-item .tree-item .tree-item-self {
+  color: var(--text-muted);
+}
+
+.workspace-leaf-content[data-type="outline"]
+  .tree-item .tree-item .tree-item .tree-item-self {
+  color: var(--text-faint);
+}
+
+/* Backlinks and search hits read as small result cards. */
+.search-result-file-title,
+.backlink-pane .tree-item-self.search-result-file-title {
+  font-weight: 620;
+  color: var(--text-normal);
+}
+
+.search-result-file-match {
+  border-radius: var(--mh-radius-sm);
+  border-left: 2px solid var(--mh-rule);
+  padding-left: 0.7em;
+  transition:
+    border-color var(--mh-fast) var(--mh-ease),
+    background-color var(--mh-fast) var(--mh-ease);
+}
+
+.search-result-file-match:hover {
+  border-left-color: var(--mh-accent-mark);
+  background-color: var(--mh-tint-1);
+}
+
+.search-result-file-matched-text {
+  background-color: var(--mh-tint-3);
+  color: var(--text-normal);
+  border-radius: 3px;
+}
+
+.tag-pane-tag-count,
+.tree-item-flair {
+  background-color: var(--mh-raised-2);
+  border-radius: var(--mh-radius-pill);
+  color: var(--text-faint);
+  font-size: 0.72em;
+  font-weight: 650;
+  padding-inline: 0.5em;
+}
+
+/* Graph view */
+.graph-view.color-fill,
+.graph-view.color-fill-highlight {
+  color: var(--mh-ruby-400);
+}
+
+.graph-view.color-line-highlight,
+.graph-view.color-circle {
+  color: var(--ruby);
+}
+
+
+/* ==========================================================================
+   18. COMMAND SURFACES
+   ========================================================================== */
+
+.prompt,
+.modal {
+  border-radius: var(--mh-radius-lg);
+  box-shadow: var(--mh-shadow-pop);
+}
+
+.prompt-input {
+  font-size: 1.02em;
+}
+
 .suggestion-item.is-selected,
 .menu-item:hover,
+.menu-item.selected,
 .vertical-tab-nav-item.is-active {
-  background: var(--ruby-soft);
-  color: var(--text-accent);
+  background-color: var(--mh-tint-2);
+  color: var(--mh-accent-text);
+  border-radius: var(--mh-radius-sm);
+}
+
+.suggestion-highlight {
+  color: var(--mh-accent-text);
+  font-weight: 650;
 }
 
 .mod-cta,
-.mod-cta:hover,
 button.mod-cta {
   background-color: var(--interactive-accent);
   color: var(--text-on-accent);
+  font-weight: 600;
 }
 
-.graph-view.color-fill,
-.graph-view.color-fill-highlight {
-  color: var(--ruby-3);
+.mod-cta:hover,
+button.mod-cta:hover {
+  background-color: var(--interactive-accent-hover);
 }
 
-.graph-view.color-line-highlight {
-  color: var(--ruby);
+.tooltip {
+  border-radius: var(--mh-radius-sm);
+  box-shadow: var(--mh-shadow-pop);
+}
+
+
+/* ==========================================================================
+   19. SCROLLBARS, FOCUS, MOTION
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--mh-scroll);
+  background-clip: content-box;
+  border: 3px solid transparent;
+  border-radius: var(--mh-radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--mh-scroll-hover);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* A visible, on-brand focus ring for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--mh-accent-mark);
+  outline-offset: 2px;
+  border-radius: var(--mh-radius-xs);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+/* ==========================================================================
+   20. PRINT
+   Exports keep the hierarchy and drop the chrome.
+   ========================================================================== */
+
+@media print {
+  .markdown-preview-view {
+    --file-line-width: none;
+  }
+
+  .markdown-rendered pre,
+  .markdown-rendered table,
+  .markdown-rendered img,
+  .callout {
+    box-shadow: none;
+  }
+
+  .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+    break-after: avoid;
+  }
+
+  .markdown-rendered :is(pre, table, blockquote, .callout) {
+    break-inside: avoid;
+  }
+
+  .markdown-rendered .copy-code-button,
+  .markdown-rendered .heading-collapse-indicator {
+    display: none;
+  }
 }

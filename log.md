@@ -1,13 +1,11 @@
+---
+type: Log
+title: Bundle Update Log
+description: Top-level update history for the bundle. Read it to see structural changes to the template and why they were made.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # Bundle Update Log
 
-## 2026-07-07
-* **Update**: Revised the public README framing so the repository stands on its own without referencing private maintenance context.
-
-## 2026-07-06
-* **Update**: Added README, concept vocabulary, lifecycle rules, first decision record, and moved the OKF baseline into Resources.
-* **Update**: Made MindHive the first-class vault name across entrypoints, MOCs, projects, and system notes.
-* **Creation**: Added Tier 1 automation for generated indexes, tag indexing, OKF linting, pre-commit checks, and CI.
-* **Creation**: Added [Agent Session Instructions](/AGENTS.md) as the first-read bootstrap for future agent sessions.
-* **Creation**: Established MindHive as an OKF v0.1 bundle.
-* **Creation**: Added PARA folders, MOCs, system protocols, templates, and cross-links.
-* **Reference**: Preserved the local [OKF Specification](/3-Resources/okf-specification.md) as the conformance baseline.
+## 2026-10-09
+* **Creation**: Rebuilt the public template from the current private vault structure. Kept the operating rules, the `_tools` checks and Stop-hook linter, the `_templates` skeletons, the Obsidian configuration with its two local plugins, the OKF baseline, and the MOC skeleton. Removed all personal content: notes, logs, attachments, and skills tied to one person's setup. Every directory log restarts from this entry.

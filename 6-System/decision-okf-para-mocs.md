@@ -34,7 +34,7 @@ Use OKF as the file and metadata baseline, PARA as the top-level organization mo
 # Links
 
 * [Decisions and Context MOC](/5-MOCs/decisions-and-context-moc.md)
-* [PARA Method](/3-Resources/para-method.md)
-* [Maps of Content](/3-Resources/maps-of-content.md)
-* [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md)
+* [PARA Method](/6-System/para-method.md)
+* [Maps of Content](/6-System/maps-of-content.md)
+* [OKF Bundle Practice](/6-System/okf-bundle-practice.md)
 * [Concept Types and Status Vocabulary](/6-System/concept-types.md)

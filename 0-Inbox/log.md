@@ -1,5 +1,11 @@
+---
+type: Log
+title: Inbox Update Log
+description: Update history for the Inbox directory. Read it to see when notes here were added or materially changed and why.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # Inbox Update Log
 
-## 2026-07-06
-* **Creation**: Added [Import Existing Knowledge Sources](/0-Inbox/import-existing-knowledge-sources.md) as the first real inbox capture.
-* **Creation**: Added inbox for unprocessed captures.
+## 2026-10-09
+* **Creation**: Template baseline. Log entries for this directory start here.

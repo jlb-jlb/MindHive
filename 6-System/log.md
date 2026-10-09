@@ -1,14 +1,11 @@
+---
+type: Log
+title: System Update Log
+description: Update history for the operating rules, tooling and conventions in 6-System. Read it to see when a rule changed and why.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # System Update Log
 
-## 2026-07-09
-* **Update**: Added a `Journal` concept type to [Concept Types and Status Vocabulary](/6-System/concept-types.md) for dated daily notes in [7-Journal](/7-Journal/).
-
-## 2026-07-07
-* **Update**: Added a portable PowerShell 7+ check runner, canonical LF line-ending policy, and operating-system agnostic validation documentation.
-* **Update**: Added commit-level OKF validation that blocks staged new or moved concept files unless a nearby `log.md` update is staged.
-
-## 2026-07-06
-* **Creation**: Added [Concept Types and Status Vocabulary](/6-System/concept-types.md) and [Why OKF + PARA + MOCs](/6-System/decision-okf-para-mocs.md).
-* **Creation**: Added vault automation tools for generated indexes, tag index generation, OKF linting, pre-commit checks, and CI.
-* **Creation**: Added startup instructions for fresh agent sessions via [Agent Session Instructions](/AGENTS.md) and [Agent Session Startup](/6-System/agent-session-startup.md).
-* **Creation**: Added vault charter, naming rules, and human/agent operating protocols.
+## 2026-10-09
+* **Creation**: Template baseline. The rules, protocols, concept types, frontmatter contract and automation notes in this directory describe the vault as it was exported. Record every later change to a rule or tool here, with the reason.

@@ -38,7 +38,7 @@ Important notes should link in at least two directions:
 
 Examples:
 
-* [Build MindHive](/1-Projects/build-human-agent-second-brain.md) links to [Vault Charter](/6-System/vault-charter.md), [PARA Method](/3-Resources/para-method.md), and [OKF Baseline](/3-Resources/okf-specification.md).
+* [Build MindHive](/6-System/build-human-agent-second-brain.md) links to [Vault Charter](/6-System/vault-charter.md), [PARA Method](/6-System/para-method.md), and [OKF Baseline](/6-System/okf-specification.md).
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md) links to [Agent Handoff Template](/3-Resources/Templates/agent-handoff-template.md) and [Decision Note Template](/3-Resources/Templates/decision-note-template.md).
 
 # Maintenance

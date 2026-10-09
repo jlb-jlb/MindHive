@@ -1,3 +1,15 @@
 # Local Obsidian UI/session state.
 .obsidian/workspace.json
 
+
+# Python automation environment and tool caches.
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Personal, machine-local Claude Code settings.
+.claude/settings.local.json
+3-Resources/books/CS/Hardware/Raspberry Pi Cookbook 3e.pdf

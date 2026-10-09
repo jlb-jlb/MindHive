@@ -1,9 +1,9 @@
 ---
 type: System
 title: Agent Session Instructions
-description: First-read instructions for any agent starting a new session in MindHive.
+description: First-read instructions for any agent starting a new session in MindHive, covering the orientation reading order, the standing capture rule, the folder meaning table for every top-level directory, the editing rules, and the frontmatter contract.
 tags: [system, agents, startup, instructions]
-timestamp: 2026-07-06T00:00:00Z
+timestamp: 2026-08-12T00:00:00Z
 ---
 
 # Agent Session Instructions
@@ -12,13 +12,17 @@ You are in `MindHive`, an Obsidian workspace and OKF knowledge bundle for shared
 
 Read this file first at the start of a new session.
 
+`AGENTS.md` and `CLAUDE.md` are two copies of this same file, because Claude Code reads only
+`CLAUDE.md` while other agent tools read only `AGENTS.md`. Any edit to one has to be made to the
+other in the same change. The vault checks do not catch the drift, so nothing else will remind you.
+
 # Immediate Orientation
 
 1. Open [index.md](/index.md) for the bundle entrypoint.
 2. Open [MindHive MOC](/5-MOCs/second-brain-moc.md) for top-level navigation.
 3. Open [Agent-Human Collaboration MOC](/5-MOCs/agent-human-collaboration-moc.md) when the task involves handoff, decisions, context, or shared work.
 4. Open [Agent Operating Protocol](/6-System/agent-operating-protocol.md) before editing the vault.
-5. Open [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md) before changing structure.
+5. Open [OKF Bundle Practice](/6-System/okf-bundle-practice.md) before changing structure.
 
 # Grow This Workspace Organically (Explicit Standing Instruction)
 
@@ -54,25 +58,64 @@ This vault uses:
 
 # Folder Meaning
 
+The numbered folders hold notes and are where your work goes. The rest is infrastructure, and a
+task should only touch it when the task is explicitly about tooling or workspace setup.
+A leading `_` marks infrastructure: the vault checks skip those folders and the Obsidian
+explorer hides them. See [Naming and Linking Rules](/6-System/naming-and-linking-rules.md).
+
 | Folder | Meaning |
 |---|---|
+| `0-Inbox/` | Unprocessed captures awaiting review. |
 | `1-Projects/` | Active outcomes with a finish line. |
 | `2-Areas/` | Ongoing responsibilities and standards. |
 | `3-Resources/` | Reusable knowledge, templates, methods, and references. |
 | `4-Archive/` | Inactive or completed material kept for history. |
-| `0-Inbox/` | Unprocessed captures awaiting review. |
 | `5-MOCs/` | Maps of Content for navigation and sensemaking. |
 | `6-System/` | Operating rules for humans, agents, and the vault itself. |
-| `.obsidian/` | Obsidian workspace settings and the local theme. |
+| `7-Journal/` | Dated daily notes for logs, reflections, and running thoughts. |
+| `_attachments/` | Images, PDFs, and other binaries referenced by notes. Never put Markdown here. |
+| `_templates/` | Raw note skeletons the Obsidian Templates plugin inserts with Ctrl+P. Skipped by the checks. The agent-facing template docs stay in `3-Resources/Templates/`. See [Obsidian Insertable Templates](/3-Resources/wiki/obsidian-insertable-templates.md). |
+| `_tools/` | The PowerShell check scripts and the `automation/` Python project behind the Stop-hook linter. See [Vault Automation](/6-System/vault-automation.md). |
+| `.githooks/` | The versioned pre-commit hook, installed with `_tools/Install-GitHooks.ps1`. |
+| `.github/` | CI workflow running the same checks as the local hook. |
+| `.obsidian/` | Obsidian workspace settings, the local theme, and the two local plugins. |
+| `.claude/`, `.agents/`, `.codex/` | Per-tool agent configuration. `.claude/settings.json` is committed and carries the Stop hook. `settings.local.json` is personal and ignored. |
 
 # Editing Rules
 
 * Every normal Markdown concept must have YAML frontmatter with a non-empty `type`.
-* `index.md` files are directory maps and normally do not need frontmatter except the root bundle index.
+* `index.md` files are directory maps and carry frontmatter with a `description` like every other file. See [Frontmatter Contract](#frontmatter-contract).
 * `log.md` files record directory update history.
-* Use bundle-relative links such as `[Linked Thinking](/3-Resources/linked-thinking.md)`.
+* Use bundle-relative links such as `[Linked Thinking](/6-System/linked-thinking.md)`.
 * Update the relevant `index.md`, MOC, and `log.md` when adding or materially changing a concept.
-* Preserve [OKF Specification](/3-Resources/okf-specification.md) as the baseline reference; do not rewrite the copied spec text.
+* Preserve [OKF Specification](/6-System/okf-specification.md) as the baseline reference; do not rewrite the copied spec text.
+
+# Frontmatter Contract
+
+**Every file you create gets YAML frontmatter, and its `description` is written for an agent that will read only the frontmatter.** Frontmatter is the routing layer of this vault. Agents scan descriptions to work out where to go and which files to open in full, so a vague description costs every later session real work.
+
+Use this field order:
+
+```yaml
+---
+type: <value from Concept Types>   # required, non-empty
+title: <display name>
+description: <one or two sentences: what is in this file, and when to read it in full>
+tags: [<tag>, <tag>]
+timestamp: <ISO 8601, e.g. 2026-08-12T00:00:00Z>
+---
+```
+
+A good `description`:
+
+* Names the concrete contents, such as the actual steps, decisions, values, or sources the file holds.
+* Says when a reader should open the file, so it answers "is this the file I need?"
+* Stays at one or two sentences and stands on its own, without leaning on the file name or on chat context.
+* Avoids filler such as "notes about X" or "various information".
+
+This covers `index.md` and `log.md` as well, which take `type: Index` and `type: Log`. Files that cannot carry YAML frontmatter, such as `.ps1`, `.js`, `.css`, and `.html`, get the same one-line description in their entry in the directory's `index.md`.
+
+Worked examples and how the checks and the index generator consume these fields: [Frontmatter Contract](/6-System/frontmatter-contract.md).
 
 # How To Handle Work
 

@@ -29,6 +29,6 @@ Agents should preserve structure, expose assumptions, update links, and leave wo
 
 * [MindHive MOC](/5-MOCs/second-brain-moc.md)
 * [Agent-Human Collaboration MOC](/5-MOCs/agent-human-collaboration-moc.md)
-* [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md)
+* [OKF Bundle Practice](/6-System/okf-bundle-practice.md)
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md)
 * [Human Operating Protocol](/6-System/human-operating-protocol.md)

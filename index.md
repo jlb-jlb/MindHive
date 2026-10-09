@@ -13,7 +13,7 @@ MindHive is a shared second brain for humans and agents. It uses PARA for durabl
 * [MindHive MOC](5-MOCs/second-brain-moc.md) - Primary map across projects, areas, resources, archives, and agent collaboration.
 * [Current Focus](5-MOCs/current-focus.md) - Active priorities and next useful moves.
 * [Agent-Human Collaboration MOC](5-MOCs/agent-human-collaboration-moc.md) - Entry point for shared work, handoffs, protocols, and decision trails.
-* [Build MindHive](1-Projects/build-human-agent-second-brain.md) - Active project that created and evolves this vault.
+* [Build MindHive](6-System/build-human-agent-second-brain.md) - Active project that created and evolves this vault.
 
 # PARA
 
@@ -41,13 +41,14 @@ MindHive is a shared second brain for humans and agents. It uses PARA for durabl
 * [Vault Automation](6-System/vault-automation.md) - Enforcement and generation tooling for the MindHive OKF bundle.
 * [Agent Operating Protocol](6-System/agent-operating-protocol.md) - How agents should read, update, and hand off work.
 * [Human Operating Protocol](6-System/human-operating-protocol.md) - How humans should capture, review, and steer work.
-* [OKF Baseline](3-Resources/okf-specification.md) - Local copy of the Open Knowledge Format specification used as the bundle baseline.
+* [OKF Baseline](6-System/okf-specification.md) - Local copy of the Open Knowledge Format specification used as the bundle baseline.
 
 <!-- BEGIN GENERATED INDEX -->
 # Generated Bundle Contents
 
 ## Subdirectories
 
+* [.claude](.claude/)
 * [0-Inbox](0-Inbox/)
 * [1-Projects](1-Projects/)
 * [2-Areas](2-Areas/)
@@ -56,10 +57,10 @@ MindHive is a shared second brain for humans and agents. It uses PARA for durabl
 * [5-MOCs](5-MOCs/)
 * [6-System](6-System/)
 * [7-Journal](7-Journal/)
-* [tools](tools/)
 
 ## Concepts
 
-* [Agent Session Instructions](AGENTS.md) - First-read instructions for any agent starting a new session in MindHive.
+* [Agent Session Instructions](AGENTS.md) - First-read instructions for any agent starting a new session in MindHive, covering the orientation reading order, the standing capture rule, the folder meaning table for every top-level directory, the editing rules, and the frontmatter contract.
+* [Agent Session Instructions](CLAUDE.md) - First-read instructions for any agent starting a new session in MindHive, covering the orientation reading order, the standing capture rule, the folder meaning table for every top-level directory, the editing rules, and the frontmatter contract.
 * [MindHive README](README.md) - GitHub-facing entrypoint for the MindHive vault.
 <!-- END GENERATED INDEX -->

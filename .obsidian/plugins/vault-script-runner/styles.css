@@ -1,0 +1,76 @@
+.vault-script-runner-script {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  margin: 16px 0;
+  padding: 12px;
+}
+
+.vault-script-runner-script h3 {
+  margin: 0 0 8px;
+}
+
+.vault-script-runner-script-summary {
+  cursor: pointer;
+  font-size: var(--font-ui-medium);
+  font-weight: 600;
+  user-select: none;
+}
+
+details.vault-script-runner-script[open] > .vault-script-runner-script-summary {
+  margin-bottom: 8px;
+}
+
+.vault-script-runner-help {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  line-height: 1.4;
+}
+
+.vault-script-runner-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.vault-script-runner-picker button {
+  justify-content: flex-start;
+}
+
+.vault-script-runner-field {
+  margin: 12px 0;
+}
+
+.vault-script-runner-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.vault-script-runner-field input {
+  width: 100%;
+}
+
+.vault-script-runner-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.vault-script-runner-output-meta {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  margin: 8px 0 12px;
+  white-space: pre-wrap;
+}
+
+.vault-script-runner-output {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  max-height: 320px;
+  overflow: auto;
+  padding: 10px;
+  white-space: pre-wrap;
+}

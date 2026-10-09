@@ -15,7 +15,7 @@ When a task affects this vault, agents should read:
 3. [Concept Types and Status Vocabulary](/6-System/concept-types.md) when creating or changing frontmatter.
 4. The relevant MOC from [MOCs](/5-MOCs/)
 5. The specific project, area, or resource notes being changed
-6. [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md) when changing structure
+6. [OKF Bundle Practice](/6-System/okf-bundle-practice.md) when changing structure
 
 # Edit Rules
 
@@ -51,8 +51,8 @@ Use [Agent Handoff Template](/3-Resources/Templates/agent-handoff-template.md) a
 
 Before finishing structural work, check:
 
-* Run `pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1 -FixIndexes` after adding, moving, or renaming notes.
-* Run `pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1` before handing work back when generated indexes should already be current.
+* Run `pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1 -FixIndexes` after adding, moving, or renaming notes.
+* Run `pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1` before handing work back when generated indexes should already be current.
 * Confirm generated index changes are intentional.
 * Confirm important concepts are linked from at least one MOC or generated index.
 * Confirm new `type` and `status` values match [Concept Types and Status Vocabulary](/6-System/concept-types.md).

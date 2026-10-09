@@ -1,19 +1,13 @@
+---
+type: Index
+title: Agent Resources
+description: Agent-facing notes: collaboration patterns, context packets and permission rules.
+timestamp: 2026-10-09T00:00:00Z
+---
+
 # Agent Resources
 
-This folder keeps agent-facing resources, reusable skill notes, and skill artifacts out of the top-level Resources directory.
-
-These notes support human-agent collaboration, but they are not primary user-facing resources for everyday vault browsing.
-
-# Concept Notes
-
-* [Agent Collaboration Patterns](agent-collaboration-patterns.md) - Reusable patterns for high-quality shared work between humans and agents.
-* [Context Packet](context-packet.md) - Minimal state snapshot needed for a human or agent to resume work.
-* [Agent Skills Library](agent-skills-library.md) - Catalog of reusable agent skills maintained alongside MindHive.
-* [General Academic Writing Skill](agent-skill-general-academic-writing.md) - Catalog entry for the reusable discipline-neutral academic writing skill.
-
-# Artifact Folders
-
-* [Agent Skills](agent-skills/) - Copy-pasteable Codex skill folders.
+Agent-facing notes: collaboration patterns, context packets and permission rules.
 
 <!-- BEGIN GENERATED INDEX -->
 # Generated Directory Contents
@@ -25,7 +19,6 @@ These notes support human-agent collaboration, but they are not primary user-fac
 ## Concepts
 
 * [Agent Collaboration Patterns](agent-collaboration-patterns.md) - Reusable patterns for high-quality shared work between humans and agents.
-* [General Academic Writing Skill](agent-skill-general-academic-writing.md) - Catalog entry for the reusable discipline-neutral academic writing skill.
-* [Agent Skills Library](agent-skills-library.md) - Catalog of reusable agent skills maintained alongside MindHive.
+* [Claude Code Permission Rules](claude-code-permission-rules.md) - How to widen or narrow Claude Code tool permissions in settings.json, including the Bash prefix-rule syntax (Bash(grep:*)), which of the four settings files to edit for which scope, and why the Grep tool is not covered by Bash rules.
 * [Context Packet](context-packet.md) - Minimal state snapshot needed for a human or agent to resume work.
 <!-- END GENERATED INDEX -->

@@ -20,11 +20,11 @@ Use this checklist once per week to keep MindHive from becoming a static scaffol
 * Run the vault checks:
 
 ```powershell
-pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1
+pwsh -NoProfile -File _tools/Invoke-OkfChecks.ps1
 ```
 
 # Related
 
 * [Human Operating Protocol](/6-System/human-operating-protocol.md)
-* [Operationalize MindHive](/1-Projects/operationalize-second-brain.md)
+* [Operationalize MindHive](/6-System/operationalize-second-brain.md)
 * [Concept Types and Status Vocabulary](/6-System/concept-types.md)

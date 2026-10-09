@@ -15,4 +15,4 @@ jobs:
 
       - name: Run OKF checks
         shell: pwsh
-        run: ./tools/Invoke-OkfChecks.ps1 -SkipCommitCheck
+        run: ./_tools/Invoke-OkfChecks.ps1 -SkipCommitCheck

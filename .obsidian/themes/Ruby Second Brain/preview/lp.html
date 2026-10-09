@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ruby Second Brain - Live Preview</title>
+<link rel="stylesheet" href="obsidian-shim.css">
+<link rel="stylesheet" href="../theme.css">
+<style>
+  /* CM6 skeleton, matching how Obsidian mounts the editor */
+  .markdown-source-view { flex: 1; overflow: auto; }
+  .cm-editor { height: 100%; }
+  .cm-scroller { overflow: auto; }
+  .cm-sizer { max-width: var(--file-line-width); margin: 0 auto; }
+  .cm-contentContainer { }
+  .cm-content { padding: 0; }
+  .cm-line { padding: 0 4px; line-height: var(--line-height-normal); }
+  .cm-editor .cm-line.HyperMD-header-1 { font-family: var(--h1-font); font-size: var(--h1-size); font-weight: var(--h1-weight); line-height: var(--h1-line-height); color: var(--h1-color); }
+  .cm-editor .cm-line.HyperMD-header-2 { font-family: var(--h2-font); font-size: var(--h2-size); font-weight: var(--h2-weight); line-height: var(--h2-line-height); color: var(--h2-color); }
+  .cm-editor .cm-line.HyperMD-header-3 { font-family: var(--h3-font); font-size: var(--h3-size); font-weight: var(--h3-weight); line-height: var(--h3-line-height); color: var(--h3-color); }
+  .cm-editor .cm-line.HyperMD-header-4 { font-family: var(--h4-font); font-size: var(--h4-size); font-weight: var(--h4-weight); color: var(--h4-color); }
+  .cm-editor .cm-inline-code { font-family: var(--font-monospace); font-size: var(--code-size); }
+  .cm-editor .HyperMD-codeblock { font-family: var(--font-monospace); font-size: var(--code-size); }
+  .cm-editor .cm-strong { font-weight: var(--bold-weight); color: var(--bold-color); }
+  .markdown-source-view .inline-title { display: block; }
+  #scheme { position: fixed; right: 10px; bottom: 10px; z-index: 99; font: 12px system-ui; padding: 6px 10px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="workspace">
+  <div class="workspace-split mod-root">
+    <div class="workspace-tab-header-container">
+      <div class="workspace-tab-header is-active"><div class="workspace-tab-header-inner"><span class="workspace-tab-header-inner-title">Agent Operating Protocol</span></div></div>
+    </div>
+    <div class="workspace-leaf-content" data-type="markdown">
+      <div class="markdown-source-view mod-cm6 is-live-preview">
+        <div class="cm-editor">
+          <div class="cm-scroller">
+            <div class="cm-sizer">
+
+              <div class="inline-title">Agent Operating Protocol</div>
+              <div class="metadata-container">
+                <div class="metadata-properties">
+                  <div class="metadata-property" data-property-key="type">
+                    <div class="metadata-property-key"><span class="metadata-property-key-input">type</span></div>
+                    <div class="metadata-property-value">System</div>
+                  </div>
+                  <div class="metadata-property" data-property-key="tags">
+                    <div class="metadata-property-key"><span class="metadata-property-key-input">tags</span></div>
+                    <div class="metadata-property-value"><a class="tag">#system</a> <a class="tag">#protocol</a></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cm-contentContainer">
+                <div class="cm-content">
+                  <div class="cm-line HyperMD-header HyperMD-header-1"><span class="cm-formatting cm-formatting-header cm-formatting-header-1 cm-header cm-header-1"># </span><span class="cm-header cm-header-1">Read Order</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line">When a task affects this vault, agents should read the bootstrap file, then <span class="cm-hmd-internal-link">Vault Charter</span>, then the relevant MOC.</div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-list-line">1. <span class="cm-hmd-internal-link">Agent Session Instructions</span></div>
+                  <div class="cm-line HyperMD-list-line">2. <span class="cm-hmd-internal-link">Concept Types and Status Vocabulary</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-header HyperMD-header-2"><span class="cm-formatting cm-formatting-header cm-formatting-header-2 cm-header cm-header-2">## </span><span class="cm-header cm-header-2">Core Structure</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line">Every layer of PARA maps to one MOC, and <span class="cm-strong">bold marks the verb</span> in a log entry.</div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-header HyperMD-header-3"><span class="cm-formatting cm-formatting-header cm-formatting-header-3 cm-header cm-header-3">### </span><span class="cm-header cm-header-3">Placement rules</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line">How-tos go to <span class="cm-inline-code">3-Resources/</span> and captures to <span class="cm-inline-code">0-Inbox/</span>, tagged <span class="cm-hashtag cm-hashtag-begin">#</span><span class="cm-hashtag cm-hashtag-end">review</span>.</div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-quote HyperMD-quote-1"><span class="cm-formatting cm-formatting-quote">&gt; </span><span class="cm-quote">A small linked note beats lost knowledge.</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-header HyperMD-header-1"><span class="cm-formatting cm-formatting-header cm-formatting-header-1 cm-header cm-header-1"># </span><span class="cm-header cm-header-1">Verification</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-codeblock HyperMD-codeblock-begin HyperMD-codeblock-bg"><span class="cm-formatting-code-block">```powershell</span></div>
+                  <div class="cm-line HyperMD-codeblock HyperMD-codeblock-bg">pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1 -FixIndexes</div>
+                  <div class="cm-line HyperMD-codeblock HyperMD-codeblock-bg">pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1</div>
+                  <div class="cm-line HyperMD-codeblock HyperMD-codeblock-end HyperMD-codeblock-bg"><span class="cm-formatting-code-block">```</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line HyperMD-header HyperMD-header-4"><span class="cm-formatting cm-formatting-header cm-formatting-header-4 cm-header cm-header-4">#### </span><span class="cm-header cm-header-4">Edge cases</span></div>
+                  <div class="cm-line">&nbsp;</div>
+                  <div class="cm-line">Prefer extending an existing note over creating a near-duplicate.</div>
+                  <div class="cm-line">&nbsp;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button id="scheme">toggle scheme</button>
+<script>
+  document.body.className =
+    new URLSearchParams(location.search).has('dark') ? 'theme-dark' : 'theme-light';
+  document.getElementById('scheme').onclick = function () {
+    document.body.classList.toggle('theme-light');
+    document.body.classList.toggle('theme-dark');
+  };
+</script>
+</body>
+</html>

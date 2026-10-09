@@ -18,6 +18,7 @@ This map helps a human and an agent share context without relying on memory hidd
 * [Agent Operating Protocol](/6-System/agent-operating-protocol.md) - How agents should read, edit, verify, and hand off.
 * [Human Operating Protocol](/6-System/human-operating-protocol.md) - How humans should capture, review, and guide.
 * [Naming and Linking Rules](/6-System/naming-and-linking-rules.md) - Stable naming, links, and tags.
+* [Frontmatter Contract](/6-System/frontmatter-contract.md) - What every file must declare in frontmatter so agents can route without opening files.
 
 # Shared Work Artifacts
 
@@ -25,6 +26,15 @@ This map helps a human and an agent share context without relying on memory hidd
 * [Decision Note Template](/3-Resources/Templates/decision-note-template.md) - A reusable structure for recording choices and tradeoffs.
 * [Project Note Template](/3-Resources/Templates/project-note-template.md) - A reusable project definition.
 * [Daily Capture Template](/3-Resources/Templates/daily-capture-template.md) - A lightweight inbox note for uncategorized context.
+
+# Agent Tooling
+
+The protocols above say what a session should do. These notes cover the harness the session runs
+inside, so a rule that keeps getting re-approved by hand can be turned into configuration instead.
+
+* [Claude Code Permission Rules](/3-Resources/agent-resources/claude-code-permission-rules.md) - Prefix-rule syntax and settings-file scopes for granting a tool standing approval.
+* [Agent Collaboration Patterns](/3-Resources/agent-resources/agent-collaboration-patterns.md) - Reusable patterns for high-quality shared work between humans and agents.
+* [Vault Automation](/6-System/vault-automation.md) - The checks and hooks this vault runs on every session and commit.
 
 # Collaboration Flow
 

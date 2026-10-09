@@ -1,9 +1,9 @@
 ---
 type: MOC
 title: Areas MOC
-description: Map of ongoing responsibilities and standards maintained by MindHive.
+description: Map of ongoing responsibilities and standards maintained in this vault. Read it to find which areas exist and where to add a new one.
 tags: [moc, areas, para]
-timestamp: 2026-07-06T00:00:00Z
+timestamp: 2026-10-09T00:00:00Z
 ---
 
 # Areas
@@ -11,6 +11,8 @@ timestamp: 2026-07-06T00:00:00Z
 * [Knowledge Operations](/2-Areas/knowledge-operations.md) - Maintain the quality, shape, and usefulness of the vault.
 * [Agent-Human Collaboration](/2-Areas/agent-human-collaboration.md) - Maintain shared context and reliable handoffs.
 * [Personal Operating System](/2-Areas/personal-operating-system.md) - Maintain practices for capture, review, and execution.
+
+Add one line here for every new area note, with a sentence on the standard it maintains.
 
 # Area Rules
 

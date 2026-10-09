@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ruby Second Brain preview</title>
+<link rel="stylesheet" href="obsidian-shim.css">
+<link rel="stylesheet" href="../theme.css">
+<style>
+  /* harness-only toggle */
+  #scheme { position: fixed; right: 10px; bottom: 10px; z-index: 99; font: 12px system-ui;
+            padding: 6px 10px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="workspace">
+
+  <!-- ================= left sidebar ================= -->
+  <div class="workspace-split mod-left-split">
+    <div class="workspace-tab-header-container">
+      <div class="workspace-tab-header is-active"><div class="workspace-tab-header-inner"><span class="workspace-tab-header-inner-title">Files</span></div></div>
+      <div class="workspace-tab-header"><div class="workspace-tab-header-inner"><span class="workspace-tab-header-inner-title">Search</span></div></div>
+    </div>
+    <div class="workspace-leaf-content" data-type="file-explorer">
+      <div class="nav-files-container">
+        <div class="nav-folder-title"><span class="nav-folder-title-content">3-Resources</span></div>
+        <div class="nav-folder-title"><span class="nav-folder-title-content">5-MOCs</span></div>
+        <div class="nav-folder-title"><span class="nav-folder-title-content">6-System</span></div>
+        <div class="nav-file-title"><span class="nav-file-title-content">agent-session-startup</span></div>
+        <div class="nav-file-title is-active"><span class="nav-file-title-content">agent-operating-protocol</span></div>
+        <div class="nav-file-title"><span class="nav-file-title-content">naming-and-linking-rules</span></div>
+        <div class="nav-file-title"><span class="nav-file-title-content">okf-bundle-practice</span></div>
+        <div class="nav-file-title"><span class="nav-file-title-content">vault-charter</span></div>
+      </div>
+    </div>
+    <div class="workspace-leaf-content" data-type="outline">
+      <div class="view-content">
+        <div class="outline">
+          <div class="tree-item"><div class="tree-item-self">Read Order</div></div>
+          <div class="tree-item"><div class="tree-item-self is-active">Edit Rules</div>
+            <div class="tree-item"><div class="tree-item-self">Placement</div>
+              <div class="tree-item"><div class="tree-item-self">Edge cases</div></div>
+            </div>
+          </div>
+          <div class="tree-item"><div class="tree-item-self">Verification</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= main pane ================= -->
+  <div class="workspace-split mod-root">
+    <div class="workspace-tab-header-container">
+      <div class="workspace-tab-header is-active"><div class="workspace-tab-header-inner"><span class="workspace-tab-header-inner-title">Agent Operating Protocol</span></div></div>
+      <div class="workspace-tab-header"><div class="workspace-tab-header-inner"><span class="workspace-tab-header-inner-title">Resources MOC</span></div></div>
+    </div>
+
+    <div class="workspace-leaf-content" data-type="markdown">
+      <div class="markdown-reading-view">
+        <div class="markdown-preview-view markdown-rendered">
+          <div class="markdown-preview-sizer">
+
+            <div class="mod-header">
+              <div class="inline-title">Agent Operating Protocol</div>
+              <div class="metadata-container">
+                <div class="metadata-properties">
+                  <div class="metadata-property" data-property-key="type">
+                    <div class="metadata-property-key"><span class="metadata-property-icon">#</span><span class="metadata-property-key-input">type</span></div>
+                    <div class="metadata-property-value">System</div>
+                  </div>
+                  <div class="metadata-property" data-property-key="description">
+                    <div class="metadata-property-key"><span class="metadata-property-icon">#</span><span class="metadata-property-key-input">description</span></div>
+                    <div class="metadata-property-value">How agents should read, update, verify, and hand off work in this vault.</div>
+                  </div>
+                  <div class="metadata-property" data-property-key="tags">
+                    <div class="metadata-property-key"><span class="metadata-property-icon">#</span><span class="metadata-property-key-input">tags</span></div>
+                    <div class="metadata-property-value"><a class="tag">#system</a> <a class="tag">#agents</a> <a class="tag">#protocol</a></div>
+                  </div>
+                  <div class="metadata-property" data-property-key="timestamp">
+                    <div class="metadata-property-key"><span class="metadata-property-icon">#</span><span class="metadata-property-key-input">timestamp</span></div>
+                    <div class="metadata-property-value">2026-07-06T00:00:00Z</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div><h1>Read Order</h1></div>
+            <div><p>When a task affects this vault, agents should read the bootstrap file, then the charter, then the relevant MOC. Links that point at notes which do not exist yet, like <a class="internal-link is-unresolved">Review Cadence</a>, are marked as gaps.</p></div>
+            <div><ol>
+              <li><a class="internal-link">Agent Session Instructions</a></li>
+              <li><a class="internal-link">Vault Charter</a></li>
+              <li><a class="internal-link">Concept Types and Status Vocabulary</a> when creating or changing frontmatter.</li>
+              <li>The specific project, area, or resource notes being changed</li>
+            </ol></div>
+
+            <div><h2>Core Structure</h2></div>
+            <div><p>Every layer of PARA maps to one MOC. The left column is the label in nearly every table here, so it carries more weight.</p></div>
+            <div><table>
+              <thead><tr><th>Layer</th><th>Use</th><th>Link</th></tr></thead>
+              <tbody>
+                <tr><td>Projects</td><td>Active outcomes with a finish line</td><td><a class="internal-link">Projects MOC</a></td></tr>
+                <tr><td>Areas</td><td>Ongoing responsibilities and standards</td><td><a class="internal-link">Areas MOC</a></td></tr>
+                <tr><td>Resources</td><td>Reusable material and references</td><td><a class="internal-link">Resources MOC</a></td></tr>
+                <tr><td>System</td><td>Rules for humans and agents</td><td><a class="internal-link">Vault Charter</a></td></tr>
+              </tbody>
+            </table></div>
+
+            <div><h3>Placement rules</h3></div>
+            <div><p>Place it by PARA. How-tos, methods and references go to <code>3-Resources/</code>. Ambiguous captures land in <code>0-Inbox/</code> flagged for review, and are <mark>never left unlinked</mark>.</p></div>
+
+            <div><h4>Edge cases</h4></div>
+            <div><p><strong>Creation</strong>: prefer extending an existing note over creating a near-duplicate. <strong>Move</strong>: record the superseded decision in the collection log.</p></div>
+
+            <div><blockquote><p>Do not rely on hidden chat context when a note should preserve it. A small linked note beats lost knowledge.</p></blockquote></div>
+
+            <div><h2>Verification</h2></div>
+            <div><p>Run the conformance checks after adding, moving, or renaming notes:</p></div>
+            <div><pre><code class="language-powershell">pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1 -FixIndexes
+pwsh -NoProfile -File tools/Invoke-OkfChecks.ps1</code><button class="copy-code-button">Copy</button></pre></div>
+            <div><pre><code class="language-yaml">type: System
+title: Agent Operating Protocol
+tags: [system, agents, protocol, handoff]</code><button class="copy-code-button">Copy</button></pre></div>
+
+            <div><ul class="contains-task-list">
+              <li class="task-list-item is-checked"><input class="task-list-item-checkbox" type="checkbox" checked> Generated indexes are current</li>
+              <li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox"> Concepts linked from at least one MOC</li>
+              <li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox"> Frontmatter types match the vocabulary</li>
+            </ul></div>
+
+            <div><hr></div>
+
+            <div><div class="callout" data-callout="summary" style="--callout-color: 225, 29, 72;">
+              <div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">Handoff</div></div>
+              <div class="callout-content"><p>Create a handoff when the work is unfinished or the reasoning is not obvious from the changed files.</p></div>
+            </div></div>
+
+            <div><h5>Related</h5></div>
+            <div><ul>
+              <li><a class="internal-link">Agent Collaboration Patterns</a></li>
+              <li><a class="internal-link">Context Packet</a>
+                <ul><li><a class="internal-link">Decision Note Template</a></li></ul>
+              </li>
+            </ul></div>
+
+            <div class="mod-footer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="scheme">toggle scheme</button>
+<script>
+  document.body.className =
+    new URLSearchParams(location.search).has('dark') ? 'theme-dark' : 'theme-light';
+  document.getElementById('scheme').onclick = function () {
+    document.body.classList.toggle('theme-light');
+    document.body.classList.toggle('theme-dark');
+  };
+</script>
+</body>
+</html>

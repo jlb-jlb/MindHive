@@ -1,0 +1,9 @@
+{
+  "id": "mindhive-hidden-files",
+  "name": "MindHive Hidden Files",
+  "version": "1.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Hides chosen files and folders from the file explorer, matched by name prefix, name ending, or exact name. The eye button in the ribbon toggles them back into view.",
+  "author": "Joscha Bisping with Claude",
+  "isDesktopOnly": false
+}

@@ -15,12 +15,12 @@ The vault should stay readable, link-rich, and operational. Notes should have cl
 
 * Review [MindHive MOC](/5-MOCs/second-brain-moc.md) after structural changes.
 * Keep [Naming and Linking Rules](/6-System/naming-and-linking-rules.md) current.
-* Keep [OKF Bundle Practice](/3-Resources/okf-bundle-practice.md) aligned with the local [OKF Baseline](/3-Resources/okf-specification.md).
+* Keep [OKF Bundle Practice](/6-System/okf-bundle-practice.md) aligned with the local [OKF Baseline](/6-System/okf-specification.md).
 * Keep [Concept Types and Status Vocabulary](/6-System/concept-types.md) aligned with actual vault usage.
 * Add entries to `log.md` files when a directory materially changes.
 
 # Related
 
-* [Build MindHive](/1-Projects/build-human-agent-second-brain.md)
+* [Build MindHive](/6-System/build-human-agent-second-brain.md)
 * [Resources MOC](/5-MOCs/resources-moc.md)
 * [Decisions and Context MOC](/5-MOCs/decisions-and-context-moc.md)
